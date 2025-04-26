@@ -1,0 +1,34 @@
+# EXECUTAR SERVIDOR
+uvicorn app:app --reload
+
+# TESTAR ENDPOINT
+## PRODUTO -> opcao = opt_02
+    - ano = 1970 a 2023
+
+## PROCESSAMENTO -> opcao = opt_03
+    - ano = 1970 a 2023
+    - subopcao
+	    * subopt_01 = Uvas Viníferas 
+        * subopt_02 = Uvas Americanas e híbridas
+        * subopt_03 = Uvas de Mesa
+        * subopt_04 = Uvas Sem Classificação
+
+## COMERCIALIZAÇÃO -> opcao = opt_04
+    - ano = 1970 a 2023
+
+## IMPORTAÇÃO -> opcao = opt_05
+    - ano = 1970 a 2023
+    - subopcao
+    	* subopt_01 = Vinhos de mesa
+        * subopt_02 = Espumantes
+        * subopt_03 = Uvas frescas
+        * subopt_04 = Uvas passas
+        * subopt_05 = Suco de uva
+
+## EXPORTAÇÃO -> opcao = opt_06
+    - ano = 1970 a 2023
+    - subopcao
+    	* subopt_01 = Vinhos de mesa
+        * subopt_02 = Espumantes
+        * subopt_03 = Uvas frescas
+        * subopt_04 = Suco de uva
