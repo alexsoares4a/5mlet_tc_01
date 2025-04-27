@@ -1,6 +1,6 @@
 import smtplib
 from email.mime.text import MIMEText
-from config import SMTP_CONFIG  # Vamos criar isso
+from config import SMTP_CONFIG
 
 def send_verification_email(email: str, token: str):
     message = f"""

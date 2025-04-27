@@ -1,4 +1,4 @@
-from .database import Base  # Agora importa de database.py
+from .database import Base
 from sqlalchemy import Column, Integer, String, Boolean
 
 class User(Base):
@@ -8,5 +8,5 @@ class User(Base):
     username = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
-    is_active = Column(Boolean, default=False)  # Para confirmação por e-mail
+    is_active = Column(Boolean, default=False)
     verification_token = Column(String, nullable=True)
