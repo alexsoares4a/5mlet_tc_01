@@ -8,6 +8,10 @@ from pydantic import BaseModel
 import secrets
 from sqlalchemy.orm import Session 
 
+# Importações para o site
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+
 # Importações dos módulos internos
 from auth.auth import ACCESS_TOKEN_EXPIRE_MINUTES, create_access_token, get_password_hash, verify_password
 from database.database import get_db, SessionLocal
@@ -18,13 +22,23 @@ from auth.schemas import UserCreate, Token, TokenData
 from auth.email_service import send_verification_email
 from scraper import scrape_embrapa
 
+
+
 # Cria as tabelas ao iniciar o app
 create_tables()
 
 # --- Configurações da API ---
 app = FastAPI()
+# Monta a pasta frontend como arquivos estáticos
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 # --- Rotas da API ---
+
+# Rota raiz
+@app.get("/")
+async def read_index():
+    return FileResponse("static/index.html")
 
 # Rota de registro (cadastro de usuário)
 @app.post("/register", response_model=Token)
