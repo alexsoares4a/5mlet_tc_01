@@ -24,3 +24,9 @@ def verify_user(db: Session, token: str):
         user.verification_token = None
         db.commit()
     return user
+
+def delete_user(db: Session, user_id: int):
+    user = db.query(User).filter(User.id == user_id).first()
+    if user:
+        db.delete(user)
+        db.commit()
