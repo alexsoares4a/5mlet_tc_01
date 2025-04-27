@@ -5,7 +5,7 @@ from config import SMTP_CONFIG  # Vamos criar isso
 def send_verification_email(email: str, token: str):
     message = f"""
     Clique no link para verificar sua conta:
-    http://localhost:8000/verify-email?token={token}
+    http://localhost:8000/static/page-verify-email.html?token={token}
     
     Ou copie este token manualmente:
     {token}
