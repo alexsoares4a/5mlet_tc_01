@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Tech Challenge - Fase 1 - Pós-Tech Machine Learning Engineering</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/icomoon-social.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="/static/css/leaflet.css" />
+	<!--[if lte IE 8]>
+		    <link rel="stylesheet" href="/static/css/leaflet.ie.css" />
+		<![endif]-->
+	<link rel="stylesheet" href="/static/css/main.css">
+
+	<script src="/static/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+
+<body>
+	<!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+
+	<!-- Navigation & Logo-->
+	<div class="mainmenu-wrapper">
+		<div class="container">
+			<div class="menuextras">
+				<div class="extras">
+					<ul>
+						<li><a href="/static/page-register.html">Cadastre-se</a></li>
+					</ul>
+					<ul>
+						<li><a href="/static/page-login.html">Entre</a></li>
+					</ul>
+				</div>
+			</div>
+			<nav id="mainmenu" class="mainmenu">
+				<ul>
+					<li class="logo-wrapper"><a href="index.html"><img src="/static/img/pos-tech-logo.png"
+								alt="Pos Tech"></a></li>
+					<li><a href="/static/index.html">Home</a></li>
+					<li class="active"><a href="/static/page-api-guide.html">Guia de Uso da API</a></li>
+					<li><a href="/static/page-deploy-plan.html">Plano de Deploy</a></li>
+					<li><a href="/static/page-api-docs.html">Documentação da API</a></li>
+
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+	<!-- Page Title -->
+	<div class="section section-breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Tech Challenge - Fase 1 - Pós-Tech Machine Learning Engineering</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Job Description -->
+					<div class="job-details-wrapper">
+						<h2>Guia de Uso da API</h2>
+
+						<h3>1. Cadastro</h3>
+						<p>Para acessar as rotas da API, é necessário criar uma conta e realizar a autenticação. Siga os
+							passos abaixo:</p>
+						<ul>
+							<li>Acesse a opção <strong>Cadastre-se</strong> no menu principal.</li>
+							<li>Preencha os campos com seu <strong>Nome de Usuário</strong>, <strong>E-mail</strong>,
+								<strong>Senha</strong> e confirme sua senha.
+							</li>
+							<li>Após o cadastro, um <strong>token de verificação</strong> será enviado para o e-mail
+								informado.</li>
+							<li>Clique no link do token recebido para validar seu cadastro.</li>
+						</ul>
+						<p><strong>Importante:</strong> O cadastro só será concluído após a validação do e-mail.</p>
+						</br>
+
+						<h3>2. Login</h3>
+						<p>Para acessar as rotas da API, é necessário estar autenticado. Siga os passos abaixo:</p>
+						<ul>
+							<li>Acesse a opção <strong>Login</strong> no menu principal.</li>
+							<li>Insira seu <strong>Nome de Usuário</strong> ou <strong>E-mail</strong> e sua
+								<strong>Senha</strong>.
+							</li>
+							<li>Após o login, você receberá um <strong>token JWT</strong> que será usado para acessar as
+								rotas protegidas.</li>
+						</ul>
+						<p><strong>Dica:</strong> Salve o token JWT em um lugar seguro, pois ele será necessário para
+							todas as requisições à API.</p></br>
+
+						<h3>3. Testando as Rotas da API</h3>
+						<p>A documentação interativa da API está disponível na guia <strong>Documentação da API</strong>
+							(via Swagger). Além disso, você pode testar as rotas diretamente usando as URLs abaixo.</p>
+
+						<h4>3.1. Produção</h4>
+						<ul>
+							<li><strong>Descrição:</strong> Apresenta os dados de "Produção de vinhos, sucos e
+								derivados".</li>
+							<li><strong>Filtros disponíveis:</strong> Ano (entre 1970 e 2023).</li>
+							<li><strong>Colunas retornadas:</strong> Produto, Quantidade (L).</li>
+							<li><strong>Rota:</strong> <code>/producao/{ano}</code></li>
+							<li><strong>Exemplos de uso:</strong>
+								<ul>
+									<li>Dados de 1970: <code>/producao/1970</code></li>
+									<li>Dados de 1980: <code>/producao/1980</code></li>
+									<li>Dados de 2023: <code>/producao/2023</code></li>
+								</ul>
+							</li>
+						</ul>
+						</br>
+						<h4>3.2. Processamento</h4>
+						<ul>
+							<li><strong>Descrição:</strong> Apresenta os dados de "Quantidade de uvas processadas no Rio
+								Grande do Sul".</li>
+							<li><strong>Filtros disponíveis:</strong> Tipo de uva e ano (entre 1970 e 2023).</li>
+							<li><strong>Tipos de uva disponíveis:</strong>
+								<ul>
+									<li><code>subopt_01</code>: Uvas Viníferas</li>
+									<li><code>subopt_02</code>: Uvas Americanas e híbridas</li>
+									<li><code>subopt_03</code>: Uvas de Mesa</li>
+									<li><code>subopt_04</code>: Uvas Sem Classificação</li>
+								</ul>
+							</li>
+							<li><strong>Colunas retornadas:</strong> Cultivar, Quantidade (L).</li>
+							<li><strong>Rota:</strong> <code>/processamento/{tipo}/{ano}</code></li>
+							<li><strong>Exemplos de uso:</strong>
+								<ul>
+									<li>Uvas Viníferas de 1970: <code>/processamento/subopt_01/1970</code></li>
+									<li>Uvas Americanas e híbridas de 1999: <code>/processamento/subopt_02/1999</code>
+									</li>
+									<li>Uvas de Mesa de 2023: <code>/processamento/subopt_03/2023</code></li>
+								</ul>
+							</li>
+						</ul>
+						</br>
+						<h4>3.3. Comercialização</h4>
+						<ul>
+							<li><strong>Descrição:</strong> Apresenta os dados de "Comercialização de vinhos e derivados
+								no Rio Grande do Sul".</li>
+							<li><strong>Filtros disponíveis:</strong> Ano (entre 1970 e 2023).</li>
+							<li><strong>Colunas retornadas:</strong> Produto, Quantidade (L).</li>
+							<li><strong>Rota:</strong> <code>/comercializacao/{ano}</code></li>
+							<li><strong>Exemplos de uso:</strong>
+								<ul>
+									<li>Dados de 1970: <code>/comercializacao/1970</code></li>
+									<li>Dados de 1985: <code>/comercializacao/1985</code></li>
+									<li>Dados de 2023: <code>/comercializacao/2023</code></li>
+								</ul>
+							</li>
+						</ul>
+						</br>
+						<h4>3.4. Importação</h4>
+						<ul>
+							<li><strong>Descrição:</strong> Apresenta os dados de "Importação de derivados de uva".</li>
+							<li><strong>Filtros disponíveis:</strong> Tipo de derivado e ano (entre 1970 e 2023).</li>
+							<li><strong>Tipos de derivado disponíveis:</strong>
+								<ul>
+									<li><code>subopt_01</code>: Vinhos de mesa</li>
+									<li><code>subopt_02</code>: Espumantes</li>
+									<li><code>subopt_03</code>: Uvas frescas</li>
+									<li><code>subopt_04</code>: Uvas passas</li>
+									<li><code>subopt_05</code>: Suco de uva</li>
+								</ul>
+							</li>
+							<li><strong>Colunas retornadas:</strong> Países, Quantidade (Kg), Valor (US$).</li>
+							<li><strong>Rota:</strong> <code>/importacao/{tipo}/{ano}</code></li>
+							<li><strong>Exemplos de uso:</strong>
+								<ul>
+									<li>Vinhos de mesa de 1970: <code>/importacao/subopt_01/1970</code></li>
+									<li>Espumantes de 1999: <code>/importacao/subopt_02/1999</code></li>
+									<li>Suco de uva de 2023: <code>/importacao/subopt_05/2023</code></li>
+								</ul>
+							</li>
+						</ul>
+						</br>
+						<h4>3.5. Exportação</h4>
+						<ul>
+							<li><strong>Descrição:</strong> Apresenta os dados de "Exportação de derivados de uva".</li>
+							<li><strong>Filtros disponíveis:</strong> Tipo de derivado e ano (entre 1970 e 2024).</li>
+							<li><strong>Tipos de derivado disponíveis:</strong>
+								<ul>
+									<li><code>subopt_01</code>: Vinhos de mesa</li>
+									<li><code>subopt_02</code>: Espumantes</li>
+									<li><code>subopt_03</code>: Uvas frescas</li>
+									<li><code>subopt_04</code>: Suco de uva</li>
+								</ul>
+							</li>
+							<li><strong>Colunas retornadas:</strong> Países, Quantidade (Kg), Valor (US$).</li>
+							<li><strong>Rota:</strong> <code>/exportacao/{tipo}/{ano}</code></li>
+							<li><strong>Exemplos de uso:</strong>
+								<ul>
+									<li>Vinhos de mesa de 1970: <code>/exportacao/subopt_01/1970</code></li>
+									<li>Espumantes de 1999: <code>/exportacao/subopt_02/1999</code></li>
+									<li>Suco de uva de 2023: <code>/exportacao/subopt_04/2023</code></li>
+								</ul>
+							</li>
+						</ul>
+						</br>
+						<h3>Dicas Gerais</h3>
+						<ul>
+							<li><strong>Autenticação:</strong> Todas as rotas estão protegidas por autenticação.
+							</li>
+							<li><strong>Erros comuns:</strong>
+								<ul>
+									<li>Certifique-se de que o token JWT está válido e não expirou.</li>
+									<li>Verifique se o ano e os tipos de filtro estão dentro dos valores permitidos.
+									</li>
+								</ul>
+							</li>
+							<li><strong>Documentação interativa:</strong> Para explorar todos os endpoints de forma
+								visual, acesse a <strong>Documentação da API</strong> via Swagger.</li>
+						</ul>
+					</div>
+					<!-- End Job Description -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-footer col-md-4 col-xs-6">
+					<h3>Dados do Aluno</h3>
+					<p class="contact-us-details">
+						<b>Nome:</b> Alex Soares da Silva<br />
+						<b>Linkedin:</b> <a href="//www.linkedin.com/in/alexsoares4a/"
+							target="_blank">alexsoares4a</a><br />
+						<b>Email:</b> <a
+							href="mailto:getintoutch@yourcompanydomain.com">getintoutch@yourcompanydomain.com</a>
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Javascripts -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+	<script src="/static/js/jquery.fitvids.js"></script>
+	<script src="/static/js/jquery.sequence-min.js"></script>
+	<script src="/static/js/jquery.bxslider.js"></script>
+	<script src="/static/js/main-menu.js"></script>
+	<script src="/static/js/template.js"></script>
+	<script src="/static/js/scripts.js"></script>
+</body>
+
+</html>
