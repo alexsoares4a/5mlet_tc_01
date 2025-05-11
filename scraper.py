@@ -19,32 +19,32 @@ def scrape_embrapa(ano: int, opcao: str, subopcao: str = None):
         # Verificar número de colunas pelos cabeçalhos
         num_colunas = len(cabecalhos)
 
-        # Criar dicionário apropriado baseado no número de colunas
-        resultado = {}
+        # Criar lista para armazenar os resultados
+        resultado = []
 
         # Itera sobre as linhas para extrair os dados
         for linha in linhas[1:]:
             celulas = linha.find_all("td")
             if celulas:  # Ignora linhas sem células
                 valores = [td.get_text(strip=True) for td in celulas]
-                
+
                 # Trata o caso de 2 colunas (Produto/Quantidade)
                 if num_colunas == 2:
-                    # Usa a primeira coluna como chave e a segunda como valor
-                    if len(valores) >= 2:
-                        resultado[valores[0]] = valores[1]
-                
+                    resultado.append({
+                        "produto": valores[0],
+                        "quantidade": valores[1]
+                    })
+
                 # Trata o caso de 3 colunas (País/Quantidade/Valor)
                 elif num_colunas == 3:
-                    # Usa a primeira coluna como chave e cria um sub-dicionário para as outras colunas
-                    if len(valores) >= 3:
-                        resultado[valores[0]] = {
-                            cabecalhos[1]: valores[1],
-                            cabecalhos[2]: valores[2]
-                        }
-        
+                    resultado.append({
+                        "pais": valores[0],
+                        "quantidade": valores[1],
+                        "valor_usd": valores[2]
+                    })
+
         return resultado
     
     except Exception as e:
         print(f"Erro ao fazer scraping: {e}")
-        return {}
+        return []
