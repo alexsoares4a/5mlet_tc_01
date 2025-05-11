@@ -4,6 +4,9 @@ from datetime import timedelta
 import secrets
 from sqlalchemy.orm import Session
 
+import os
+import pandas as pd
+
 # Importações para o site
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -15,7 +18,12 @@ from auth.email_service import send_verification_email
 
 # Importações dos módeulos de banco de dados
 from database.database import get_db, create_tables
-from database.crud import get_user, create_user, verify_user, delete_user
+from database.crud import(
+    get_user, 
+    create_user, 
+    verify_user, 
+    delete_user
+)
 
 # Importação do módulo de captura dos dados do site da embrapa
 from scraper import scrape_embrapa
@@ -38,6 +46,9 @@ app = FastAPI(
 )
 # Monta a pasta frontend como arquivos estáticos
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Pasta onde os arquivos CSV estão armazenados
+CSV_FOLDER = "csv"
 
 # --- Rotas da API ---
 # Rota raiz
@@ -180,9 +191,38 @@ async def delete_user(current_user: str = Depends(get_current_user), db: Session
 )
 def get_producao(
     ano: int, 
-    current_user: str = Depends(get_current_user)
+    current_user: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
 ):
-    return scrape_embrapa(ano, "opt_02")
+    try:
+        # Tenta obter os dados do site da Embrapa
+        data = scrape_embrapa(ano, "opt_02")
+        if not data:
+            raise ValueError("Nenhum dado encontrado no site da Embrapa.")
+        return data
+    except Exception as e:
+        # Fallback para CSV
+        csv_filename = "Producao.csv"
+        csv_path = os.path.join(CSV_FOLDER, csv_filename)
+        
+        if not os.path.exists(csv_path):
+            raise HTTPException(status_code=404, detail="Dados não encontrados no site nem no arquivo CSV.")
+        
+        # Lê o arquivo CSV e filtra pelo ano solicitado
+        df = pd.read_csv(csv_path, sep=";")
+        year_column = str(ano)  # Converte o ano para string (nome da coluna)
+
+        if year_column not in df.columns:
+            raise HTTPException(status_code=404, detail=f"Dados para o ano {ano} não encontrados.")
+
+        # Filtra os dados para o ano solicitado
+        filtered_data = df[["produto", year_column]].rename(columns={year_column: "quantidade"})
+        result = filtered_data.to_dict(orient="records")
+
+        if not result:
+            raise HTTPException(status_code=404, detail=f"Nenhum dado encontrado para o ano {ano}.")
+        
+        return result
 
 # Consultar Processamento
 @app.get(
@@ -198,9 +238,45 @@ def get_producao(
 def get_processamento(
     tipo: str, 
     ano: int, 
-    current_user: str = Depends(get_current_user)
+    current_user: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
 ):
-    return scrape_embrapa(ano, "opt_03", tipo)
+    try:
+        data = scrape_embrapa(ano, "opt_03", tipo)
+        if not data:
+            raise ValueError("Nenhum dado encontrado no site da Embrapa.")
+        return data
+    except Exception as e:
+        # Fallback para CSV
+        # Mapeia o tipo para o nome do arquivo correspondente
+        tipo_to_filename = {
+            "subopt_01": "ProcessaViniferas.csv",
+            "subopt_02": "ProcessaAmericanas.csv",
+            "subopt_03": "ProcessaMesa.csv",
+            "subopt_04": "ProcessaSemclass.csv"
+        }
+
+        if tipo not in tipo_to_filename:
+            raise HTTPException(status_code=400, detail=f"Tipo '{tipo}' inválido.")
+
+        csv_filename = tipo_to_filename[tipo]
+        csv_path = os.path.join(CSV_FOLDER, csv_filename)
+
+        # Lê o arquivo CSV e filtra pelo ano solicitado
+        df = pd.read_csv(csv_path, sep=";")  
+        year_column = str(ano)  # Converte o ano para string (nome da coluna)
+
+        if year_column not in df.columns:
+            raise HTTPException(status_code=404, detail=f"Dados para o ano {ano} não encontrados.")
+
+        # Filtra os dados para o ano solicitado
+        filtered_data = df[["cultivar", year_column]].rename(columns={year_column: "quantidade"})
+        result = filtered_data.to_dict(orient="records")
+
+        if not result:
+            raise HTTPException(status_code=404, detail=f"Nenhum dado encontrado para o tipo '{tipo}' e o ano {ano}.")
+
+        return result
 
 # Consultar Comercialização
 @app.get(
@@ -215,9 +291,37 @@ def get_processamento(
 )
 def get_comercializacao(
     ano: int, 
-    current_user: str = Depends(get_current_user)
+    current_user: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
 ):
-    return scrape_embrapa(ano, "opt_04")
+    try:
+        data = scrape_embrapa(ano, "opt_04")
+        if not data:
+            raise ValueError("Nenhum dado encontrado no site da Embrapa.")
+        return data
+    except Exception as e:
+        # Fallback para CSV
+        csv_filename = "Comercio.csv"
+        csv_path = os.path.join(CSV_FOLDER, csv_filename)
+        
+        if not os.path.exists(csv_path):
+            raise HTTPException(status_code=404, detail="Dados não encontrados no site nem no arquivo CSV.")
+        
+        # Lê o arquivo CSV e filtra pelo ano solicitado
+        df = pd.read_csv(csv_path, sep=";")
+        year_column = str(ano)  # Converte o ano para string (nome da coluna)
+
+        if year_column not in df.columns:
+            raise HTTPException(status_code=404, detail=f"Dados para o ano {ano} não encontrados.")
+
+        # Filtra os dados para o ano solicitado
+        filtered_data = df[["Produto", year_column]].rename(columns={year_column: "quantidade"})
+        result = filtered_data.to_dict(orient="records")
+
+        if not result:
+            raise HTTPException(status_code=404, detail=f"Nenhum dado encontrado para o ano {ano}.")
+        
+        return result
 
 # Consultar Importação
 @app.get(
@@ -233,9 +337,49 @@ def get_comercializacao(
 def get_importacao(
     produto: str, 
     ano: int, 
-    current_user: str = Depends(get_current_user)
+    current_user: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
 ):
-    return scrape_embrapa(ano, "opt_05", produto)
+    try:
+        data = scrape_embrapa(ano, "opt_05", produto)
+        if not data:
+            raise ValueError("Nenhum dado encontrado no site da Embrapa.")
+        return data
+    except Exception as e:
+        # Fallback para CSV
+        # Mapeia o tipo para o nome do arquivo correspondente
+        tipo_to_filename = {
+            "subopt_01": "ImpVinhos.csv",
+            "subopt_02": "ImpEspumantes.csv",
+            "subopt_03": "ImpFrescas.csv",
+            "subopt_04": "ImpPassas.csv",
+            "subopt_05": "ImpSuco.csv"
+        }
+
+        if produto not in tipo_to_filename:
+            raise HTTPException(status_code=400, detail=f"Produto '{produto}' inválido.")
+
+        csv_filename = tipo_to_filename[produto]
+        csv_path = os.path.join(CSV_FOLDER, csv_filename)
+
+        # Lê o arquivo CSV e filtra pelo ano solicitado
+        df = pd.read_csv(csv_path, sep="\t") 
+        year_column = str(ano)  # Converte o ano para string (nome da coluna)
+        year_usd_column = f"{ano}.1"  # Coluna com o valor em US$
+
+        if year_column not in df.columns or year_usd_column not in df.columns:
+            raise HTTPException(status_code=404, detail=f"Dados para o ano {ano} não encontrados.")
+
+        # Filtra os dados para o ano solicitado
+        filtered_data = df[["País", year_column, year_usd_column]].rename(
+            columns={year_column: "quantidade", year_usd_column: "valor_usd", "País": "pais"}
+        )
+        result = filtered_data.to_dict(orient="records")
+
+        if not result:
+            raise HTTPException(status_code=404, detail=f"Nenhum dado encontrado para o produto '{produto}' e o ano {ano}.")
+
+        return result
 
 # Consultar Exportação
 @app.get(
@@ -251,6 +395,45 @@ def get_importacao(
 def get_exportacao(
     produto: str, 
     ano: int, 
-    current_user: str = Depends(get_current_user)
+    current_user: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
 ):
-    return scrape_embrapa(ano, "opt_06", produto)
+    try:
+        data = scrape_embrapa(ano, "opt_06", produto)
+        if not data:
+            raise ValueError("Nenhum dado encontrado no site da Embrapa.")
+        return data
+    except Exception as e:
+        # Fallback para CSV
+        # Mapeia o tipo para o nome do arquivo correspondente
+        tipo_to_filename = {
+            "subopt_01": "ExpVinho.csv",
+            "subopt_02": "ExpEspumantes.csv",
+            "subopt_03": "ExpUva.csv",
+            "subopt_04": "ExpSuco.csv"
+        }
+
+        if produto not in tipo_to_filename:
+            raise HTTPException(status_code=400, detail=f"Produto '{produto}' inválido.")
+
+        csv_filename = tipo_to_filename[produto]
+        csv_path = os.path.join(CSV_FOLDER, csv_filename)
+
+        # Lê o arquivo CSV e filtra pelo ano solicitado
+        df = pd.read_csv(csv_path, sep="\t") 
+        year_column = str(ano)  # Converte o ano para string (nome da coluna)
+        year_usd_column = f"{ano}.1"  # Coluna com o valor em US$
+
+        if year_column not in df.columns or year_usd_column not in df.columns:
+            raise HTTPException(status_code=404, detail=f"Dados para o ano {ano} não encontrados.")
+
+        # Filtra os dados para o ano solicitado
+        filtered_data = df[["País", year_column, year_usd_column]].rename(
+            columns={year_column: "quantidade", year_usd_column: "valor_usd", "País": "pais"}
+        )
+        result = filtered_data.to_dict(orient="records")
+
+        if not result:
+            raise HTTPException(status_code=404, detail=f"Nenhum dado encontrado para o produto '{produto}' e o ano {ano}.")
+
+        return result     
