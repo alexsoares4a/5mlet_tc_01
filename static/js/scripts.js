@@ -20,8 +20,16 @@ document.getElementById("login-form")?.addEventListener("submit", async (e) => {
         }
 
         const data = await response.json();
-        localStorage.setItem("token", data.access_token);
-        window.location.href = "page-team.html";
+        const token = data.access_token;
+
+        // Salva o token no localStorage
+        localStorage.setItem("token", token);
+
+        // Exibe a seção do token
+        document.getElementById("jwt-token").value = token;
+        document.getElementById("token-section").classList.remove("d-none");
+
+        alert("Login realizado com sucesso!");
     } catch (error) {
         alert(error.message);
     }
