@@ -1,9 +1,3 @@
-Claro! Com base no seu projeto e nos arquivos que você compartilhou, vou te ajudar a **criar um README completo e bem estruturado** para o seu repositório do GitHub.
-
-Aqui está uma sugestão de conteúdo para o arquivo `README.md`, com todos os tópicos solicitados:
-
----
-
 # 🍷 Tech Challenge - Fase 1 - Machine Learning Engineering
 
 ## 🧾 Descrição do Projeto
