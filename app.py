@@ -14,7 +14,6 @@ from fastapi.staticfiles import StaticFiles
 # Importações dos módulos de autenticação
 from auth.auth import ACCESS_TOKEN_EXPIRE_MINUTES, create_access_token, get_password_hash, verify_password, get_current_user
 from auth.schemas import UserCreate, Token
-from auth.email_service import send_verification_email
 
 # Importações dos módeulos de banco de dados
 from database.database import get_db, create_tables
@@ -69,46 +68,40 @@ async def read_index():
         500: {"description": "Erro ao registrar o usuário."}
     }
 )
-async def register(user: UserCreate, db: Session = Depends(get_db)):    
-    try:
-        hashed_password = get_password_hash(user.password)
-        verification_token = secrets.token_urlsafe(32)
+def register(
+    user: UserCreate,
+    db: Session = Depends(get_db)
+):   
+    try: 
+        # Verifica se o usuário ou e-mail já existem
+        existing_user = get_user(db, username=user.username)
+        existing_email = db.query(User).filter(User.email == user.email).first()
+        if existing_user or existing_email:
+            raise HTTPException(
+                status_code=400,
+                detail="Nome de usuário ou e-mail já cadastrado"
+            )
         
+        # Gera senha hash
+        hashed_password = get_password_hash(user.password)
+
+        # Cria o novo usuário
         create_user(
             db=db,
             username=user.username,
             email=user.email,
             hashed_password=hashed_password,
-            token=verification_token
+            is_active=True,
+            token=None
         )
-        
-        # Tenta enviar e-mail mas não falha se não conseguir
-        email_enviado = send_verification_email(user.email, verification_token)
-        
-        if not email_enviado:
-            print("Aviso: E-mail não enviado, mas usuário foi criado")
-        
-        return {"access_token": create_access_token({"sub": user.username}), "token_type": "bearer"}
+
+        # Gera token JWT para login automático
+        access_token = create_access_token(data={"sub": user.username})
+        return {"access_token": access_token, "token_type": "bearer"}
     
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Erro no registro: {str(e)}")
-
-# Rota de verificação de e-mail
-@app.get(
-    "/verify-email",
-    summary="Verificar E-mail",
-    description="Verifica o token enviado por e-mail para ativar a conta do usuário.",
-    responses={
-        200: {"description": "E-mail verificado com sucesso."},
-        400: {"description": "Token inválido ou expirado."}
-    }
-)
-async def verify_email(token: str, db: Session = Depends(get_db)):
-    user = verify_user(db, token)
-    if not user:
-        raise HTTPException(status_code=400, detail="Token inválido")
-    return {"message": "E-mail verificado com sucesso!"}
 
 # Rota de login (gera token JWT)
 @app.post(
