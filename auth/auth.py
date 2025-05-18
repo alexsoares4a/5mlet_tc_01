@@ -13,7 +13,7 @@ from database.crud import get_user
 from .schemas import TokenData
 
 # Configurações
-SECRET_KEY = "sua_chave_secreta"  # Em produção, use variáveis de ambiente!
+SECRET_KEY = "sua_chave_secreta"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

@@ -1,7 +1,6 @@
-from fastapi import FastAPI, Depends, HTTPException, status, Path
+from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from datetime import timedelta
-import secrets
 from sqlalchemy.orm import Session
 
 import os
@@ -19,10 +18,10 @@ from auth.schemas import UserCreate, Token
 from database.database import get_db, create_tables
 from database.crud import(
     get_user, 
-    create_user, 
-    verify_user, 
-    delete_user
+    create_user,
+    delete_user_id
 )
+from database.models import User
 
 # Importação do módulo de captura dos dados do site da embrapa
 from scraper import scrape_embrapa
@@ -51,24 +50,28 @@ CSV_FOLDER = "csv"
 
 # --- Rotas da API ---
 # Rota raiz
-@app.get("/", 
-         summary="Página Inicial", 
-         description="Retorna a página inicial do site.")
+@app.get(
+    "/", 
+    summary="Página Inicial", 
+    tags=["Redirecionamento"],
+    description="Retorna a página inicial do site."
+)
 async def read_index():
     return FileResponse("static/index.html")
 
 # Rota de registro (cadastro de usuário)
 @app.post(
     "/register",
+    tags=["Cadastro e Autenticação"],
     response_model=Token,
     summary="Registrar Usuário",
-    description="Cria um novo usuário no sistema e envia um e-mail de verificação.",
+    description="Cria um novo usuário no sistema.",
     responses={
         200: {"description": "Usuário registrado com sucesso. Retorna um token JWT."},
         500: {"description": "Erro ao registrar o usuário."}
     }
 )
-def register(
+async def register(
     user: UserCreate,
     db: Session = Depends(get_db)
 ):   
@@ -105,7 +108,8 @@ def register(
 
 # Rota de login (gera token JWT)
 @app.post(
-    "/login",
+    "/login",    
+    tags=["Cadastro e Autenticação"],
     response_model=Token,
     summary="Login do Usuário",
     description="Autentica o usuário e retorna um token JWT.",
@@ -138,6 +142,7 @@ async def login(
 # Rota de Logout
 @app.post(
     "/logout", 
+    tags=["Cadastro e Autenticação"],
     summary="Logoff do Usuário", 
     description="Remove a sessão do usuário.",
     responses={
@@ -151,6 +156,7 @@ async def logout():
 # Rota de Excluir Conta do Usuário
 @app.delete(
     "/delete-user",
+    tags=["Cadastro e Autenticação"],
     summary="Excluir Conta do Usuário",
     description="Permite que o usuário exclua sua conta permanentemente.",
     responses={
@@ -159,21 +165,28 @@ async def logout():
         404: {"description": "Usuário não encontrado."}
     }
 )
-async def delete_user(current_user: str = Depends(get_current_user), db: Session = Depends(get_db)):
+async def delete_user(
+    current_user: User = Depends(get_current_user), 
+    db: Session = Depends(get_db)
+):
     # Verifica se o usuário existe
-    user = get_user(db, username=current_user)
-    if not user:
+    if not current_user:
         raise HTTPException(status_code=404, detail="Usuário não encontrado.")
     
     # Exclui o usuário
-    delete_user(db, user.id)
-    return {"message": "Sua conta foi excluída permanentemente."}
+    try:
+        delete_user_id(db, current_user.id)
+        return {"message": "Sua conta foi excluída permanentemente."}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Erro ao excluir usuário: {str(e)}")
 
 # --- ROTAS DO WEB SCRAPER --- #
 
 # Consultar Produção
 @app.get(
     "/producao/{ano}",
+    tags=["Rotas de Web Scrapper"],
     summary="Consultar Produção",
     description="Retorna dados de produção vitivinícola para o ano especificado.",
     responses={
@@ -220,6 +233,7 @@ def get_producao(
 # Consultar Processamento
 @app.get(
     "/processamento/{tipo}/{ano}",
+    tags=["Rotas de Web Scrapper"],
     summary="Consultar Processamento",
     description="Retorna dados de processamento vitivinícola para o tipo e ano especificados.",
     responses={
@@ -274,6 +288,7 @@ def get_processamento(
 # Consultar Comercialização
 @app.get(
     "/comercializacao/{ano}",
+    tags=["Rotas de Web Scrapper"],
     summary="Consultar Comercialização",
     description="Retorna dados de comercialização vitivinícola para o ano especificado.",
     responses={
@@ -319,6 +334,7 @@ def get_comercializacao(
 # Consultar Importação
 @app.get(
     "/importacao/{produto}/{ano}",
+    tags=["Rotas de Web Scrapper"],
     summary="Consultar Importação",
     description="Retorna dados de importação vitivinícola para o produto e ano especificados.",
     responses={
@@ -377,6 +393,7 @@ def get_importacao(
 # Consultar Exportação
 @app.get(
     "/exportacao/{produto}/{ano}",
+    tags=["Rotas de Web Scrapper"],
     summary="Consultar Exportação",
     description="Retorna dados de exportação vitivinícola para o produto e ano especificados.",
     responses={
