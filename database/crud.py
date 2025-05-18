@@ -17,16 +17,10 @@ def create_user(db: Session, username: str, email: str, hashed_password: str, to
     db.refresh(db_user)
     return db_user
 
-def verify_user(db: Session, token: str):
-    user = db.query(User).filter(User.verification_token == token).first()
-    if user:
-        user.is_active = True
-        user.verification_token = None
-        db.commit()
-    return user
-
-def delete_user(db: Session, user_id: int):
+def delete_user_id(db: Session, user_id: int):
     user = db.query(User).filter(User.id == user_id).first()
     if user:
         db.delete(user)
         db.commit()
+        return True
+    return False
