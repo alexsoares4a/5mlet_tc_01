@@ -1,12 +1,12 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 class TokenData(BaseModel):
     username: str | None = None
 
 class UserCreate(BaseModel):
     username: str
-    email: str
-    password: str
+    email: EmailStr
+    password: str 
 
 class UserLogin(BaseModel):
     username: str
