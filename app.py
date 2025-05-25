@@ -63,11 +63,10 @@ async def read_index():
 @app.post(
     "/register",
     tags=["Cadastro e Autenticação"],
-    response_model=Token,
     summary="Registrar Usuário",
     description="Cria um novo usuário no sistema.",
     responses={
-        200: {"description": "Usuário registrado com sucesso. Retorna um token JWT."},
+        200: {"description": "Usuário registrado com sucesso."},
         500: {"description": "Erro ao registrar o usuário."}
     }
 )
@@ -94,13 +93,10 @@ async def register(
             username=user.username,
             email=user.email,
             hashed_password=hashed_password,
-            is_active=True,
             token=None
         )
 
-        # Gera token JWT para login automático
-        access_token = create_access_token(data={"sub": user.username})
-        return {"access_token": access_token, "token_type": "bearer"}
+        return {"description": "Usuário registrado com sucesso."}
     
     except Exception as e:
         db.rollback()
