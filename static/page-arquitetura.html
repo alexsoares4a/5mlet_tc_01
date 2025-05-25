@@ -6,89 +6,93 @@
 <html class="no-js"> <!--<![endif]-->
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Tech Challenge - Fase 1 - Pós-Tech Machine Learning Engineering</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Tech Challenge - Fase 1 - Pós-Tech Machine Learning Engineering</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
 
-	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/static/css/icomoon-social.css">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/icomoon-social.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="/static/css/leaflet.css" />
-	<!--[if lte IE 8]>
+    <link rel="stylesheet" href="/static/css/leaflet.css" />
+    <!--[if lte IE 8]>
 		    <link rel="stylesheet" href="/static/css/leaflet.ie.css" />
 		<![endif]-->
-	<link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/main.css">
 
-	<script src="/static/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="/static/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 
 <body>
-	<!--[if lt IE 7]>
+    <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
 
-	<!-- Navigation & Logo-->
-	<div class="mainmenu-wrapper">
-		<div class="container">
-			<nav id="mainmenu" class="mainmenu">
-				<ul>
-					<li class="logo-wrapper"><a href="index.html"><img src="/static/img/pos-tech-logo.png"
-								alt="Pos Tech"></a></li>
-					<li><a href="/static/index.html">Home</a></li>
-					<li><a href="/static/page-projeto.html">Sobre o Projeto</a></li>
-					<li><a href="/static/page-tecnologias.html">Tecnologias</a></li>
-					<li class="active"><a href="/static/page-arquitetura.html">Arquitetura</a></li>
-					<li><a href="/static/page-documentacao.html">Documentação da API</a></li>
-				</ul>
-			</nav>
-		</div>
-	</div>
+    <!-- Navigation & Logo-->
+    <div class="mainmenu-wrapper">
+        <div class="container">
+            <nav id="mainmenu" class="mainmenu">
+                <ul>
+                    <li class="logo-wrapper"><a href="index.html"><img src="/static/img/pos-tech-logo.png"
+                                alt="Pos Tech"></a></li>
+                    <li><a href="/static/index.html">Home</a></li>
+                    <li><a href="/static/page-tecnologias.html">Tecnologias</a></li>
+                    <li class="active"><a href="/static/page-arquitetura.html">Arquitetura</a></li>
+                    <li><a href="/static/page-documentacao.html">Documentação da API</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
-	<!-- Page Title -->
-	<div class="section section-breadcrumbs">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h1>🍷 Tech Challenge - Fase 1 - Machine Learning Engineering</h1>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Page Title -->
+    <div class="section section-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>🍷 Tech Challenge - Fase 1 - Machine Learning Engineering</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<!-- Job Description -->
-                     <div class="job-details-wrapper">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Job Description -->
+                    <div class="job-details-wrapper">
                         <h3>Fluxo Completo da Arquitetura do Sistema</h3>
                         <p>
-                            A seguir, apresentamos o fluxo completo da arquitetura do sistema, desde a interação inicial do cliente até o retorno dos dados raspados ou fallback.
+                            A seguir, apresentamos o fluxo completo da arquitetura do sistema, desde a interação inicial
+                            do cliente até o retorno dos dados raspados ou fallback.
                         </p>
                         <!-- Diagrama Visual -->
                         <div class="well text-center">
-                            <img src="/static/img/arquitetura_api.png" alt="Diagrama da Arquitetura" class="img-responsive center-block" style="max-width: 100%; height: auto;">
+                            <img src="/static/img/arquitetura_api.png" alt="Diagrama da Arquitetura"
+                                class="img-responsive center-block" style="max-width: 100%; height: auto;">
                             <p><em>Diagrama do fluxo completo do sistema</em></p>
                         </div>
 
                         <hr />
 
-                        <h4>1. Interação do Cliente</h4>
+                        <h3>1. Interação do Cliente</h3>
                         <p>O processo começa com o acesso do cliente à API:</p>
                         <ul>
                             <li><strong>Cadastro:</strong> O usuário se cadastra via rota `/register`.</li>
-                            <li><strong>Login:</strong> Após cadastro, o usuário faz login via `/login`, recebendo um token JWT.</li>
-                            <li><strong>Consumo da API:</strong> O token é usado nas rotas protegidas via header `Authorization: Bearer <token>`.</li>
+                            <li><strong>Login:</strong> Após cadastro, o usuário faz login via `/login`, recebendo um
+                                token JWT.</li>
+                            <li><strong>Consumo da API:</strong> O token é usado nas rotas protegidas via header
+                                `Authorization: Bearer <token>`.</li>
                         </ul>
 
                         <hr />
 
-                        <h4>2. Autenticação – JWT</h4>
-                        <p>A autenticação é feita usando tokens JWT, garantindo segurança no acesso às rotas protegidas:</p>
+                        <h3>2. Autenticação – JWT</h3>
+                        <p>A autenticação é feita usando tokens JWT, garantindo segurança no acesso às rotas protegidas:
+                        </p>
                         <ul>
                             <li>Dados do usuário são armazenados no banco SQLite;</li>
                             <li>Após login bem-sucedido, um token JWT é gerado;</li>
@@ -98,7 +102,7 @@
 
                         <hr />
 
-                        <h4>3. Raspagem de Dados – BeautifulSoup</h4>
+                        <h3>3. Raspagem de Dados – BeautifulSoup</h3>
                         <p>A API realiza web scraping direto do site da Embrapa:</p>
                         <ul>
                             <li>Rota chama função `scrape_embrapa()`;</li>
@@ -108,7 +112,7 @@
 
                         <hr />
 
-                        <h4>4. Fallback Local – CSV</h4>
+                        <h3>4. Fallback Local – CSV</h3>
                         <p>Para garantir disponibilidade mesmo quando o site da Embrapa estiver fora do ar:</p>
                         <ul>
                             <li>Se o scraping falhar, o sistema busca dados de arquivos CSV locais;</li>
@@ -118,7 +122,7 @@
 
                         <hr />
 
-                        <h4>5. Banco de Dados – SQLite</h4>
+                        <h3>5. Banco de Dados – SQLite</h3>
                         <p>O sistema usa SQLite para armazenar usuários registrados:</p>
                         <ul>
                             <li>Contém informações: nome, e-mail, senha hash e status;</li>
@@ -128,7 +132,7 @@
 
                         <hr />
 
-                        <h4>6. API REST – FastAPI</h4>
+                        <h3>6. API REST – FastAPI</h3>
                         <p>A API REST, construída com FastAPI, coordena todo o sistema:</p>
                         <ul>
                             <li>Recebe requisições do cliente;</li>
@@ -140,7 +144,7 @@
 
                         <hr />
 
-                        <h4>7. Documentação – Swagger UI</h4>
+                        <h3>7. Documentação – Swagger UI</h3>
                         <p>O FastAPI gera automaticamente uma interface de documentação interativa:</p>
                         <ul>
                             <li>Disponível em <code>/docs</code>;</li>
@@ -151,7 +155,7 @@
 
                         <hr />
 
-                        <h4>8. Plano de Deploy – Render</h4>
+                        <h3>8. Plano de Deploy – Render</h3>
                         <p>A API foi implantada online via plataforma Render:</p>
                         <ul>
                             <li>URL pública para acesso remoto;</li>
@@ -162,7 +166,7 @@
 
                         <hr />
 
-                        <h4>9. Exemplo de Fluxo de Acesso</h4>
+                        <h3>9. Exemplo de Fluxo de Acesso</h3>
                         <ol>
                             <li>Usuário acessa a API via Swagger ou Postman;</li>
                             <li>Faz cadastro em `/register` com nome, e-mail e senha;</li>
@@ -176,7 +180,7 @@
 
                         <hr />
 
-                        <h4>10. Considerações sobre Resiliência</h4>
+                        <h3>10. Considerações sobre Resiliência</h3>
                         <p>O sistema foi projetado para ser resiliente:</p>
                         <ul>
                             <li>Autenticação segura com token JWT;</li>
@@ -189,8 +193,9 @@
 
                         <hr />
 
-                        <h4>11. Melhorias Futuras (Opcionais)</h4>
-                        <p>Embora o projeto atenda aos requisitos mínimos, algumas melhorias podem ser adicionadas posteriormente:</p>
+                        <h3>11. Melhorias Futuras (Opcionais)</h3>
+                        <p>Embora o projeto atenda aos requisitos mínimos, algumas melhorias podem ser adicionadas
+                            posteriormente:</p>
                         <ul>
                             <li>Implementação de cache para reduzir requisições ao site;</li>
                             <li>Uso de Docker para containerização;</li>
@@ -201,7 +206,7 @@
 
                         <hr />
 
-                        <h4>12. Resumo do Fluxo</h4>
+                        <h3>12. Resumo do Fluxo</h3>
                         <pre>
 [Cliente] 
    ↓ (cadastro/login)
@@ -214,7 +219,7 @@
 
                         <hr />
 
-                        <h4>13. Boas Práticas Adotadas</h4>
+                        <h3>13. Boas Práticas Adotadas</h3>
                         <ul>
                             <li>Organização modular do código;</li>
                             <li>Modelos Pydantic para validação automática;</li>
@@ -229,52 +234,54 @@
 
                         <hr />
 
-                        <h4>14. Conclusão</h4>
+                        <h3>14. Conclusão</h3>
                         <p>
-                            Este projeto demonstra uma solução prática e escalável para extração e consulta de dados públicos de vitivinicultura. Composta por web scraping, autenticação segura, fallback inteligente e documentação interativa, a API cumpre seu papel de forma robusta e preparada para futuras etapas de análise e modelagem de Machine Learning.
+                            Este projeto demonstra uma solução prática e escalável para extração e consulta de dados
+                            públicos de vitivinicultura. Composta por web scraping, autenticação segura, fallback
+                            inteligente e documentação interativa, a API cumpre seu papel de forma robusta e preparada
+                            para futuras etapas de análise e modelagem de Machine Learning.
                         </p>
 
                     </div>
-					<!-- End Job Description -->
-				</div>
-			</div>
-		</div>
-	</div>
+                    <!-- End Job Description -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-footer col-md-4 col-xs-6">
-					<h3>Dados do Aluno</h3>
-					<p class="contact-us-details">
-						<b>Nome:</b> Alex Soares da Silva<br />
-						<b>Linkedin:</b> <a href="//www.linkedin.com/in/alexsoares4a/"
-							target="_blank">alexsoares4a</a><br />
-						<b>Email:</b> <a
-							href="mailto:getintoutch@yourcompanydomain.com">getintoutch@yourcompanydomain.com</a>
-					</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-footer col-md-4 col-xs-6">
+                    <h3>Dados do Aluno</h3>
+                    <p class="contact-us-details">
+                        <b>Nome:</b> Alex Soares da Silva<br />
+                        <b>Linkedin:</b> <a href="//www.linkedin.com/in/alexsoares4a/"
+                            target="_blank">alexsoares4a</a><br />
+                        <b>Email:</b> <a
+                            href="mailto:getintoutch@yourcompanydomain.com">getintoutch@yourcompanydomain.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- Javascripts -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
-	<script src="/static/js/bootstrap.min.js"></script>
-	<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
-	<script src="/static/js/jquery.fitvids.js"></script>
-	<script src="/static/js/jquery.sequence-min.js"></script>
-	<script src="/static/js/jquery.bxslider.js"></script>
-	<script src="/static/js/main-menu.js"></script>
-	<script src="/static/js/template.js"></script>
-	<script src="/static/js/scripts.js"></script>
+    <!-- Javascripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+    <script src="/static/js/jquery.fitvids.js"></script>
+    <script src="/static/js/jquery.sequence-min.js"></script>
+    <script src="/static/js/jquery.bxslider.js"></script>
+    <script src="/static/js/main-menu.js"></script>
+    <script src="/static/js/template.js"></script>
 </body>
 
 </html>
