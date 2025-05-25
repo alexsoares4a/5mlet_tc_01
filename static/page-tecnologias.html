@@ -65,16 +65,17 @@
 					<!-- Job Description -->
 					<div class="job-details-wrapper">
 						<h3>Tecnologias Escolhidas para o Projeto</h3>
-						<p>Este projeto foi desenvolvido utilizando um conjunto estratégico de tecnologias que permitem
-							atender aos requisitos do Tech Challenge da forma mais prática e simples. A seguir estão as
-							principais ferramentas e bibliotecas escolhidas, juntamente com o motivo de cada decisão
-							técnica.</p>
+						<p>Este projeto foi desenvolvido utilizando um conjunto de tecnologias que permitem atender aos
+							requisitos do Tech Challenge - Fase 1 de forma prática e simples. A seguir estão as
+							principais
+							ferramentas e bibliotecas escolhidas, juntamente com o motivo de cada decisão técnica.</p>
 
 						<hr />
 
 						<h3>🐍 FastAPI – API REST em Python</h3>
 						<p>O FastAPI foi a escolha principal para construir a API REST deste projeto. Ele é um framework
 							moderno, rápido e altamente produtivo, especialmente projetado para APIs.</p>
+						<p>Principais características:</p>
 						<ul>
 							<li><strong>Rapidez:</strong> Desempenho comparável ao Node.js e Go.</li>
 							<li><strong>Documentação automática:</strong> Gera Swagger e ReDoc diretamente a partir dos
@@ -91,6 +92,7 @@
 						<h3>🧱 Pydantic – Validação e Modelagem de Dados</h3>
 						<p>O Pydantic é uma biblioteca poderosa usada para validar e modelar os dados que entram e saem
 							da API.</p>
+						<p>Principais características:</p>
 						<ul>
 							<li><strong>Tipagem forte:</strong> Garante integridade e segurança dos dados.</li>
 							<li><strong>Modelos reutilizáveis:</strong> Facilita a manutenção e padronização.</li>
@@ -105,6 +107,7 @@
 						<h3>🔐 JWT – Autenticação com Token</h3>
 						<p>Para proteger as rotas da API, foi adotado o padrão JSON Web Token (JWT), uma solução
 							amplamente utilizada para autenticação segura em sistemas RESTful.</p>
+						<p>Principais características:</p>
 						<ul>
 							<li><strong>Stateless:</strong> Não depende de sessões armazenadas no servidor.</li>
 							<li><strong>Seguro:</strong> Tokens assinados digitalmente com algoritmos como HS256.</li>
@@ -119,11 +122,13 @@
 						<h3>📦 SQLAlchemy – ORM para Banco de Dados</h3>
 						<p>O SQLAlchemy foi utilizado como ORM (Object Relational Mapper) para facilitar a manipulação
 							do banco de dados SQLite.</p>
+						<p>Principais características:</p>
 						<ul>
-							<li><strong>Abstração de SQL:</strong> Trabalhamos com objetos Python, não com queries
+							<li><strong>Abstração de SQL:</strong> Trabalha com objetos Python, não com queries
 								puras.</li>
-							<li><strong>Compatibilidade:</strong> Funciona com SQLite, PostgreSQL, MySQL etc.</li>
-							<li><strong>Boa integração:</strong> Com o FastAPI e o sistema de login.</li>
+							<li><strong>Compatibilidade:</strong> Funciona com SQLite, PostgreSQL, MySQL entre outros.
+							</li>
+							<li><strong>Boa integração:</strong> Com o FastAPI.</li>
 						</ul>
 						<p><strong>Motivo da escolha:</strong> Permite escrever código mais organizado e seguro,
 							evitando erros comuns de SQL.</p>
@@ -133,6 +138,7 @@
 						<h3>🔒 Passlib – Hash de Senhas</h3>
 						<p>A biblioteca Passlib foi usada para gerenciar senhas de forma segura, usando algoritmos como
 							bcrypt.</p>
+						<p>Principais características:</p>
 						<ul>
 							<li><strong>Hash seguro:</strong> Armazena senhas criptografadas.</li>
 							<li><strong>Flexível:</strong> Suporta diversos algoritmos de hash.</li>
@@ -146,6 +152,7 @@
 						<h3>🕵️ BeautifulSoup – Raspagem de Dados</h3>
 						<p>Como a Embrapa não disponibiliza uma API pública, optamos por fazer web scraping dos dados
 							diretamente do site usando BeautifulSoup.</p>
+						<p>Principais características:</p>
 						<ul>
 							<li><strong>Leve e eficaz:</strong> Excelente para extração rápida de tabelas HTML.</li>
 							<li><strong>Fácil uso:</strong> Integra-se perfeitamente com requisições HTTP via requests.
@@ -153,17 +160,17 @@
 							<li><strong>Robusto:</strong> Capaz de lidar com variações na estrutura HTML.</li>
 						</ul>
 						<p><strong>Motivo da escolha:</strong> É uma ferramenta acessível e poderosa para extrair dados
-							do site da Embrapa.</p>
+							de site web.</p>
 
 						<hr />
 
 						<h3>📁 CSV – Fallback Local para Dados</h3>
-						<p>Para garantir a disponibilidade da API mesmo quando o site da Embrapa estiver fora do ar, implementamos fallback local através de arquivos CSV.</p>
+						<p>Para garantir a disponibilidade da API mesmo quando o site da Embrapa estiver fora do ar,
+							implementamos fallback local através de arquivos CSV.</p>
+						<p>Principais características:</p>
 						<ul>
 							<li><strong>Arquivo simples:</strong> Leitura direta com pandas.</li>
 							<li><strong>Baixa dependência:</strong> Não requer conexão externa ou banco de dados.</li>
-							<li><strong>Útil para cache:</strong> Pode ser substituído futuramente por armazenamento
-								mais avançado.</li>
 						</ul>
 						<p><strong>Motivo da escolha:</strong> Oferece resiliência sem complexidade adicional, essencial
 							para validação durante a correção.</p>
@@ -173,10 +180,11 @@
 						<h3>💾 SQLite – Banco de Dados Local</h3>
 						<p>Optamos pelo SQLite para armazenar informações de usuário, como nome, e-mail e senha
 							criptografada.</p>
+						<p>Principais características:</p>
 						<ul>
-							<li><strong>Zero setup:</strong> Basta um arquivo `.db` — nenhum servidor necessário.</li>
+							<li><strong>Zero setup:</strong> Basta um arquivo `.db` - nenhum servidor necessário.</li>
 							<li><strong>Leve e rápido:</strong> Ideal para MVPs e protótipos.</li>
-							<li><strong>Padrão de mercado:</strong> Muito usado em aplicações locais e pequenos
+							<li><strong>Simplicidade:</strong> Muito usado em aplicações locais e pequenos
 								sistemas.</li>
 						</ul>
 						<p><strong>Motivo da escolha:</strong> Adequado para o escopo atual, com possibilidade de
@@ -187,6 +195,7 @@
 						<h3>🌐 Render – Hospedagem Online</h3>
 						<p>Para cumprir o requisito de fornecer uma URL pública, o projeto foi hospedado na plataforma
 							Render.</p>
+						<p>Principais características:</p>
 						<ul>
 							<li><strong>Gratuito:</strong> Disponível para pequenas cargas.</li>
 							<li><strong>Fácil deploy:</strong> Suporte a GitHub e configuração simplificada.</li>
@@ -200,10 +209,11 @@
 						<h3>🖥️ Bootstrap – Interface Estática</h3>
 						<p>A interface inicial do projeto foi desenvolvida com Bootstrap, garantindo responsividade e
 							facilidade de uso.</p>
+						<p>Principais características:</p>
 						<ul>
 							<li><strong>Responsivo:</strong> Adapta-se a qualquer dispositivo.</li>
 							<li><strong>Componentes prontos:</strong> Botões, menus e navegação intuitiva.</li>
-							<li><strong>Design profissional:</strong> Visual limpo e moderno.</li>
+							<li><strong>Design:</strong> Visual limpo e moderno.</li>
 						</ul>
 						<p><strong>Motivo da escolha:</strong> Permite criar uma interface amigável com poucas linhas de
 							código.</p>
@@ -213,21 +223,22 @@
 						<h3>📜 Swagger – Documentação Interativa da API</h3>
 						<p>O Swagger foi usado para gerar a documentação interativa da API, permitindo testar os
 							endpoints diretamente no navegador.</p>
+						<p>Principais características:</p>
 						<ul>
 							<li><strong>Interface visual:</strong> Teste de rotas com preenchimento de parâmetros.</li>
 							<li><strong>Atualização automática:</strong> A documentação reflete mudanças no código.</li>
 							<li><strong>Compatível com OpenAPI:</strong> Aceita ferramentas como Postman e Insomnia.
 							</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Indispensável para consumo da API por terceiros e
-							avaliação do projeto.</p>
+						<p><strong>Motivo da escolha:</strong>Permite testar rotas diretamente no navegador.</p>
 
 						<hr />
 
 						<h3>📂 Pandas – Manipulação de Dados em CSV</h3>
 						<p>Usamos o Pandas para ler e processar os arquivos CSV no caso de fallback.</p>
+						<p>Principais características:</p>
 						<ul>
-							<li><strong>Eficiente:</strong> Manipula grandes volumes de dados rapidamente.</li>
+							<li><strong>Eficiente:</strong> Manipula adequadamente o volume de dados disponível.</li>
 							<li><strong>Flexível:</strong> Converte dados para JSON de forma simples e robusta.</li>
 							<li><strong>Integração direta:</strong> Com o FastAPI e o sistema de fallback.</li>
 						</ul>

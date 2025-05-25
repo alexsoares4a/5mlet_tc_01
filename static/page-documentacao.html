@@ -6,78 +6,83 @@
 <html class="no-js"> <!--<![endif]-->
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Tech Challenge - Fase 1 - Pós-Tech Machine Learning Engineering</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Tech Challenge - Fase 1 - Pós-Tech Machine Learning Engineering</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
 
-	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/static/css/icomoon-social.css">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/icomoon-social.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="/static/css/leaflet.css" />
-	<!--[if lte IE 8]>
+    <link rel="stylesheet" href="/static/css/leaflet.css" />
+    <!--[if lte IE 8]>
 		    <link rel="stylesheet" href="/static/css/leaflet.ie.css" />
 		<![endif]-->
-	<link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/main.css">
 
-	<script src="/static/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="/static/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 
 <body>
-	<!--[if lt IE 7]>
+    <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
 
-	<!-- Navigation & Logo-->
-	<div class="mainmenu-wrapper">
-		<div class="container">
-			<nav id="mainmenu" class="mainmenu">
-				<ul>
-					<li class="logo-wrapper"><a href="index.html"><img src="/static/img/pos-tech-logo.png"
-								alt="Pos Tech"></a></li>
-					<li><a href="/static/index.html">Home</a></li>
-					<li><a href="/static/page-tecnologias.html">Tecnologias</a></li>
-					<li><a href="/static/page-arquitetura.html">Arquitetura</a></li>
-					<li class="active"><a href="/static/page-documentacao.html">Documentação da API</a></li>
-				</ul>
-			</nav>
-		</div>
-	</div>
+    <!-- Navigation & Logo-->
+    <div class="mainmenu-wrapper">
+        <div class="container">
+            <nav id="mainmenu" class="mainmenu">
+                <ul>
+                    <li class="logo-wrapper"><a href="index.html"><img src="/static/img/pos-tech-logo.png"
+                                alt="Pos Tech"></a></li>
+                    <li><a href="/static/index.html">Home</a></li>
+                    <li><a href="/static/page-tecnologias.html">Tecnologias</a></li>
+                    <li><a href="/static/page-arquitetura.html">Arquitetura</a></li>
+                    <li class="active"><a href="/static/page-documentacao.html">Documentação da API</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
-	<!-- Page Title -->
-	<div class="section section-breadcrumbs">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h1>🍷 Tech Challenge - Fase 1 - Machine Learning Engineering</h1>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Page Title -->
+    <div class="section section-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>🍷 Tech Challenge - Fase 1 - Machine Learning Engineering</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<!-- Job Description -->
-					<div class="job-details-wrapper">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Job Description -->
+                    <div class="job-details-wrapper">
                         <h3>📚 Documentação da API</h3>
                         <p>
-                            Este documento apresenta a documentação completa da API REST desenvolvida para o Tech Challenge da Fase 01 do curso de Pós-Tech em Machine Learning Engineering.
+                            Este documento apresenta a documentação base da <strong>VitiBrasil API</strong> desenvolvida
+                            para o Tech Challenge - Fase 1 do curso de Pós-Tech em Machine Learning Engineering.
                         </p>
 
                         <hr />
 
                         <h3>🧭 Visão Geral da API</h3>
                         <p>
-                            A <strong>VitiBrasil API</strong> foi desenvolvida para extrair dados do site da Embrapa sobre vitivinicultura, incluindo Produção, Processamento, Comercialização, Importação e Exportação. A API é segura, usa autenticação JWT e está disponível publicamente.
+                            A <strong>VitiBrasil API</strong> foi desenvolvida para extrair dados do site da Embrapa
+                            sobre vitivinicultura, incluindo Produção, Processamento, Comercialização, Importação e
+                            Exportação. A API é segura, ela usa autenticação JWT para a utilização das rotas de extração
+                            de dados e está disponível publicamente.
                         </p>
                         <p>
-                            Para facilitar o uso e consumo dos dados, a API gera automaticamente uma interface interativa através do Swagger UI, acessível via:
-                            <a href="/docs" target="_blank">http://127.0.0.1:8000/docs</a>
+                            Para facilitar o uso e consumo dos dados, a API gera automaticamente uma interface
+                            interativa através do Swagger UI, acessível via:
+                            <a href="/docs" target="_blank">/docs</a>
                         </p>
 
                         <hr />
@@ -148,256 +153,311 @@
                             <li><i class="icon-enter"></i> Login e obtenção do token JWT</li>
                             <li><i class="icon-lock-open"></i> Autorização via botão "Authorize"</li>
                             <li><i class="icon-beaker"></i> Teste das rotas protegidas</li>
-                            <li><i class="icon-refresh"></i> Verificação do funcionamento com fallback local (opcional)</li>
+                            <li><i class="icon-refresh"></i> Verificação do funcionamento com fallback local (opcional)
+                            </li>
                         </ol>
 
                         <hr />
 
-                        <h3>🧑‍💻 1. Cadastro – Rota /register</h3>
+                        <h3>🧑‍💻 Cadastro – Rota /register</h3>
                         <p>Para acessar as rotas da API, é necessário criar uma conta. Siga os passos abaixo:</p>
                         <ul>
                             <li>Acesse a rota <code>/register</code> no Swagger;</li>
                             <li>Clique no botão <strong>"Try it out"</strong>;</li>
-                            <li>No campo <strong>Request body</strong>, preencha os campos:</li>
+                            <li>Na seção <strong>Request body</strong>, preencha os campos:</li>
                         </ul>
                         <pre>
 {
   "username": "seu_usuario",
   "email": "usuario@example.com",
   "password": "sua_senha_segura"
-}
-                        </pre>
+}                       </pre>
                         <ul>
-                            <li>Clique em <strong>"Execute"</strong>;</li>
+                            <li>Clique no botão <strong>"Execute"</strong>;</li>
                             <li>O resultado esperado será:</li>
                         </ul>
                         <pre>
 {
   "message": "Usuário registrado com sucesso!"
-}
-                        </pre>
-                        <p><strong>✅ Observação:</strong> Nesta versão, o token JWT não é retornado aqui — ele será gerado apenas após o login.</p>
+}                       </pre>
 
                         <hr />
 
-                        <h3>🔐 2. Login – Rota /login</h3>
+                        <h3>🔐 Login – Rota /login</h3>
                         <p>Após o cadastro, realize login para obter seu token JWT:</p>
                         <ul>
                             <li>Acesse a rota <code>/login</code> no Swagger;</li>
-                            <li>Clique em <strong>"Try it out"</strong>;</li>
-                            <li>Preencha os campos:</li>
+                            <li>Clique no botão <strong>"Try it out"</strong>;</li>
+                            <li>Na seção <strong>Request body</strong>, preencha os campos:</li>
                         </ul>
                         <pre>
 username: seu_usuario
-password: sua_senha_segura
-                        </pre>
+password: sua_senha_segura </pre>
                         <ul>
-                            <li>Clique em <strong>"Execute"</strong>;</li>
+                            <li>Clique no botão <strong>"Execute"</strong>;</li>
                             <li>O resultado esperado será:</li>
                         </ul>
                         <pre>
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxx",
   "token_type": "bearer"
-}
-                        </pre>
+}                        </pre>
                         <p><strong>🔒 Importante:</strong></p>
                         <ul>
-                            <li>Salve o token JWT em um lugar seguro;</li>
-                            <li>Ele será usado nas próximas etapas para acessar rotas protegidas;</li>
-                            <li>O token tem validade de <strong>30 minutos</strong>.</li>
+                            <li>O token JWT será usado nas próximas etapas para acessar rotas protegidas e tem validade
+                                de <strong>30 minutos</strong>.</li>
                         </ul>
 
                         <hr />
 
-                        <h3>🚪 3. Autorização – Botão "Authorize"</h3>
-                        <p>Na interface do Swagger, localize o botão <strong>"Authorize"</strong> no canto superior direito.</p>
+                        <h3>🚪 Autorização – Botão "Authorize"</h3>
+                        <p>Na interface do Swagger, localize o botão <strong>"Authorize"</strong> no canto superior
+                            direito.</p>
                         <ul>
-                            <li>Clique nele;</li>
-                            <li>Cole o token JWT no campo:</li>
-							<li>Preencha os campos:</li>
+                            <li>Clique no botão <strong>"Authorize"</strong></li>
+                            <li>Na tela <strong>"Available authorizations"</strong>, preencha os campos:</li>
                         </ul>
                         <pre>
 username: seu_usuario
-password: sua_senha_segura
-                        </pre>
+password: sua_senha_segura</pre>
                         <ul>
-                            <li>Clique em <strong>"Authorize"</strong>;</li>
-                            <li>Depois, clique em <strong>"Close"</strong> para retornar à interface principal.</li>
+                            <li>Clique no botão <strong>"Authorize"</strong>;</li>
+                            <li>Depois, clique no botão <strong>"Close"</strong> para retornar à interface principal.
+                            </li>
                         </ul>
-                        <p><strong>✅ Agora você pode testar todas as rotas protegidas com autenticação automática!</strong></p>
+                        <p>✅ Agora será possível testar todas as rotas protegidas com autenticação
+                            automática!</p>
 
                         <hr />
 
-                        <h3>🛠️ 4. Testando as Rotas Protegidas da API</h3>
-                        <p>As rotas de consulta estão protegidas com autenticação JWT. Certifique-se de ter inserido o token antes de testá-las.</p>
+                        <h3>🛠️ Testando as Rotas Protegidas da API</h3>
+                        <p>As rotas de consulta estão protegidas com autenticação JWT.</p>
                         <hr />
-                        <h4>🍷 4.1. Produção – Rota /producao/{ano}</h4>
+                        <h4>🍷 Produção – Rota <code>/producao/{ano}</code></h4>
                         <ul>
-                            <li><strong>Descrição:</strong> Retorna dados de produção de vinhos, sucos e derivados para o ano informado;</li>
-                            <li><strong>Filtros disponíveis:</strong> Ano entre <code>1970</code> e <code>2023</code>;</li>
-                            <li><strong>Colunas retornadas:</strong> <code>produto</code>, <code>quantidade</code> (em litros).</li>
+                            <li><strong>Descrição:</strong> Retorna dados de produção de vinhos, sucos e derivados para
+                                o ano informado;</li>
+                            <li><strong>Filtros disponíveis:</strong> Ano entre <code>1970</code> e <code>2023</code>;
+                            </li>
+                            <li><strong>Colunas retornadas:</strong> <code>produto</code>, <code>quantidade</code> (em
+                                litros).</li>
                         </ul>
                         <p><strong>📌 Passo a Passo no Swagger:</strong></p>
                         <ul>
                             <li>Acesse a rota <code>/producao/{ano}</code>;</li>
-                            <li>Clique em <strong>"Try it out"</strong>;</li>
-                            <li>Preencha o campo <strong>ano</strong> (ex: <code>2023</code>);</li>
-                            <li>Clique em <strong>"Execute"</strong>;</li>
-                            <li><strong>Resultado esperado:</strong></li>
+                            <li>Clique no botão <strong>"Try it out"</strong>;</li>
+                            <li>Na seção <strong>Request body</strong>, preencha o campo <strong>"ano"</strong> (ex:
+                                <code>2023</code>);
+                            </li>
+                            <li>Clique no botão <strong>"Execute"</strong>;</li>
+                            <li>O resultado esperado será:</li>
                         </ul>
                         <pre>
 [
   {"produto": "Vinho Tinto", "quantidade": "146075996"},
   {"produto": "Vinho Branco", "quantidade": "26432799"}
-]
-                        </pre>
+]                        </pre>
 
                         <hr />
 
-                        <h4>🍇 4.2. Processamento – Rota /processamento/{tipo}/{ano}</h4>
+                        <h4>🍇 4.2. Processamento – Rota <code>/processamento/{tipo}/{ano}</code></h4>
                         <ul>
-                            <li><strong>Descrição:</strong> Retorna dados de quantidade de uvas processadas no Rio Grande do Sul, separados por tipo de uva e ano;</li>
-                            <li><strong>Tipos de uva:</strong>
+                            <li><strong>Descrição:</strong> Retorna dados de quantidade de uvas processadas no Rio
+                                Grande do Sul, separados por tipo de uva e ano;</li>
+                            <li><strong>Filtros disponíveis:</strong>
                                 <ul>
-                                    <li><code>subopt_01</code>: Uvas Viníferas</li>
-                                    <li><code>subopt_02</code>: Uvas Americanas e Híbridas</li>
-                                    <li><code>subopt_03</code>: Uvas de Mesa</li>
-                                    <li><code>subopt_04</code>: Uvas Sem Classificação</li>
+                                    <li><strong>tipo:</strong>
+                                        <ul>
+                                            <li><code>subopt_01</code>: Uvas Viníferas</li>
+                                            <li><code>subopt_02</code>: Uvas Americanas e Híbridas</li>
+                                            <li><code>subopt_03</code>: Uvas de Mesa</li>
+                                            <li><code>subopt_04</code>: Uvas Sem Classificação</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>ano:</strong>
+                                        <ul>
+                                            <li>Ano entre <code>1970</code> e <code>2023</code></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><strong>Filtro:</strong> Ano entre <code>1970</code> e <code>2023</code>.</li>
+                            <li><strong>Colunas retornadas:</strong> <code>produto</code>, <code>quantidade</code> (em
+                                litros).</li>
                         </ul>
                         <p><strong>📌 Passo a Passo no Swagger:</strong></p>
                         <ul>
                             <li>Acesse a rota <code>/processamento/{tipo}/{ano}</code>;</li>
-                            <li>Clique em <strong>"Try it out"</strong>;</li>
-                            <li>Preencha:
+                            <li>Clique no botão <strong>"Try it out"</strong>;</li>
+                            <li>Na seção <strong>Request body</strong>, preencha os campos:
                                 <ul>
-                                    <li><code>tipo</code>: ex: <code>subopt_01</code> (Uvas Viníferas)</li>
+                                    <li><code>tipo</code>: ex: <code>subopt_01</code> (Uvas Viníferas)
+                                    </li>
                                     <li><code>ano</code>: ex: <code>2023</code></li>
                                 </ul>
                             </li>
-                            <li>Clique em <strong>"Execute"</strong>;</li>
-                            <li><strong>Resultado esperado:</strong></li>
+                            <li>Clique no botão <strong>"Execute"</strong>;</li>
+                            <li>O resultado esperado será:</li>
                         </ul>
                         <pre>
 [
   {"produto": "Cabernet Sauvignon", "quantidade": "1000000"},
   {"produto": "Merlot", "quantidade": "800000"}
-]
-                        </pre>
+]                        </pre>
 
                         <hr />
 
-                        <h4>🍷 4.3. Comercialização – Rota /comercializacao/{ano}</h4>
+                        <h4>🛒 Comercialização – Rota <code>/comercializacao/{ano}</code></h4>
                         <ul>
-                            <li><strong>Descrição:</strong> Retorna dados de comercialização de produtos vinícolas no Rio Grande do Sul para o ano informado;</li>
-                            <li><strong>Filtros:</strong> Ano entre <code>1970</code> e <code>2023</code>;</li>
-                            <li><strong>Colunas retornadas:</strong> <code>produto</code>, <code>quantidade</code> (em litros).</li>
+                            <li><strong>Descrição:</strong> Retorna dados de comercialização de produtos
+                                vinícolas no
+                                Rio Grande do Sul para o ano informado;</li>
+                            <li><strong>Filtros disponíveis:</strong> Ano entre <code>1970</code> e
+                                <code>2023</code>;
+                            </li>
+                            <li><strong>Colunas retornadas:</strong> <code>produto</code>,
+                                <code>quantidade</code> (em
+                                litros).
+                            </li>
                         </ul>
                         <p><strong>📌 Passo a Passo no Swagger:</strong></p>
                         <ul>
                             <li>Acesse a rota <code>/comercializacao/{ano}</code>;</li>
-                            <li>Clique em <strong>"Try it out"</strong>;</li>
-                            <li>Preencha o campo <strong>ano</strong> (ex: <code>2023</code>);</li>
-                            <li>Clique em <strong>"Execute"</strong>;</li>
-                            <li><strong>Resultado esperado:</strong></li>
+                            <li>Clique no botão <strong>"Try it out"</strong>;</li>
+                            <li>Na seção <strong>Request body</strong>, preencha o campo <strong>"ano"</strong> (ex:
+                                <code>2023</code>);
+                            </li>
+                            <li>Clique no botão <strong>"Execute"</strong>;</li>
+                            <li>O resultado esperado será:</li>
                         </ul>
                         <pre>
 [
   {"produto": "Vinho Tinto", "quantidade": "12000000"},
   {"produto": "Espumante", "quantidade": "1500000"}
-]
-                        </pre>
+]                        </pre>
 
                         <hr />
 
-                        <h4>🌍 4.4. Importação – Rota /importacao/{produto}/{ano}</h4>
+                        <h4>🌍 Importação – Rota <code>/importacao/{produto}/{ano}</code></h4>
                         <ul>
-                            <li><strong>Descrição:</strong> Retorna dados de importação de derivados de uva por tipo de produto e ano;</li>
-                            <li><strong>Tipos de produto:</strong>
+                            <li><strong>Descrição:</strong> Retorna dados de importação de derivados de
+                                uva por tipo de
+                                produto e ano;</li>
+                            <li><strong>Filtros disponíveis:</strong>
                                 <ul>
-                                    <li><code>subopt_01</code>: Vinhos de mesa</li>
-                                    <li><code>subopt_02</code>: Espumantes</li>
-                                    <li><code>subopt_03</code>: Uvas frescas</li>
-                                    <li><code>subopt_04</code>: Uvas passas</li>
-                                    <li><code>subopt_05</code>: Suco de uva</li>
+                                    <li><strong>produto:</strong>
+                                        <ul>
+                                            <li><code>subopt_01</code>: Vinhos de mesa</li>
+                                            <li><code>subopt_02</code>: Espumantes</li>
+                                            <li><code>subopt_03</code>: Uvas frescas</li>
+                                            <li><code>subopt_04</code>: Uvas passas</li>
+                                            <li><code>subopt_05</code>: Suco de uva</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>ano:</strong>
+                                        <ul>
+                                            <li>Ano entre <code>1970</code> e
+                                                <code>2023</code>;
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><strong>Filtro:</strong> Ano entre <code>1970</code> e <code>2023</code>;</li>
-                            <li><strong>Colunas retornadas:</strong> <code>pais</code>, <code>quantidade</code> (kg), <code>valor_usd</code> ($).</li>
+
+                            <li><strong>Colunas retornadas:</strong> <code>pais</code>,
+                                <code>quantidade</code> (kg),
+                                <code>valor_usd</code> ($).
+                            </li>
                         </ul>
                         <p><strong>📌 Passo a Passo no Swagger:</strong></p>
                         <ul>
                             <li>Acesse a rota <code>/importacao/{produto}/{ano}</code>;</li>
-                            <li>Clique em <strong>"Try it out"</strong>;</li>
-                            <li>Preencha:
+                            <li>Clique no botão <strong>"Try it out"</strong>;</li>
+                            <li>Na seção <strong>Request body</strong>, preencha os campos:
                                 <ul>
-                                    <li><code>produto</code>: ex: <code>subopt_05</code> (suco de uva)</li>
+                                    <li><code>produto</code>: ex: <code>subopt_05</code> (suco de uva)
+                                    </li>
                                     <li><code>ano</code>: ex: <code>2023</code></li>
                                 </ul>
                             </li>
-                            <li>Clique em <strong>"Execute"</strong>;</li>
-                            <li><strong>Resultado esperado:</strong></li>
+                            <li>Clique no botão <strong>"Execute"</strong>;</li>
+                            <li>O resultado esperado será:</li>
                         </ul>
                         <pre>
 [
   {"pais": "Argentina", "quantidade": "500000", "valor_usd": "100000"},
   {"pais": "Itália", "quantidade": "300000", "valor_usd": "60000"}
-]
-                        </pre>
+]                        </pre>
 
                         <hr />
 
-                        <h4>🌎 4.5. Exportação – Rota /exportacao/{produto}/{ano}</h4>
+                        <h4>🌎 Exportação – Rota <code>/exportacao/{produto}/{ano}</code></h4>
                         <ul>
-                            <li><strong>Descrição:</strong> Retorna dados de exportação de derivados de uva por tipo de produto e ano;</li>
-                            <li><strong>Tipos de produto:</strong>
+                            <li><strong>Descrição:</strong> Retorna dados de exportação de derivados de
+                                uva por tipo de
+                                produto e ano;</li>
+                            <li><strong>Filtros disponíveis:</strong>
                                 <ul>
-                                    <li><code>subopt_01</code>: Vinhos de mesa</li>
-                                    <li><code>subopt_02</code>: Espumantes</li>
-                                    <li><code>subopt_03</code>: Uvas frescas</li>
-                                    <li><code>subopt_04</code>: Suco de uva</li>
+                                    <li><strong>produto:</strong>
+                                        <ul>
+                                            <li><code>subopt_01</code>: Vinhos de mesa</li>
+                                            <li><code>subopt_02</code>: Espumantes</li>
+                                            <li><code>subopt_03</code>: Uvas frescas</li>
+                                            <li><code>subopt_04</code>: Suco de uva</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>ano:</strong>
+                                        <ul>
+                                            <li>Ano entre <code>1970</code> e
+                                                <code>2023</code>;
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><strong>Filtro:</strong> Ano entre <code>1970</code> e <code>2023</code>;</li>
-                            <li><strong>Colunas retornadas:</strong> <code>pais</code>, <code>quantidade</code> (kg), <code>valor_usd</code> ($).</li>
+
+                            <li><strong>Colunas retornadas:</strong> <code>pais</code>,
+                                <code>quantidade</code> (kg),
+                                <code>valor_usd</code> ($).
+                            </li>
                         </ul>
                         <p><strong>📌 Passo a Passo no Swagger:</strong></p>
                         <ul>
                             <li>Acesse a rota <code>/exportacao/{produto}/{ano}</code>;</li>
-                            <li>Clique em <strong>"Try it out"</strong>;</li>
-                            <li>Preencha:
+                            <li>Clique no botão <strong>"Try it out"</strong>;</li>
+                            <li>Na seção <strong>Request body</strong>, preencha os campos:
                                 <ul>
-                                    <li><code>produto</code>: ex: <code>subopt_04</code> (suco de uva)</li>
+                                    <li><code>produto</code>: ex: <code>subopt_04</code> (suco de uva)
+                                    </li>
                                     <li><code>ano</code>: ex: <code>2023</code></li>
                                 </ul>
                             </li>
-                            <li>Clique em <strong>"Execute"</strong>;</li>
-                            <li><strong>Resultado esperado:</strong></li>
+                            <li>Clique no botão <strong>"Execute"</strong>;</li>
+                            <li>O resultado esperado será:</li>
                         </ul>
                         <pre>
 [
   {"pais": "Estados Unidos", "quantidade": "200000", "valor_usd": "80000"},
   {"pais": "França", "quantidade": "100000", "valor_usd": "40000"}
-]
-                        </pre>
+]                        </pre>
 
                         <hr />
 
-                        <h3>🔄 Fallback Local</h3>
+                        <h3>📁 Fallback Local</h3>
                         <p>Se o site da Embrapa estiver fora do ar:</p>
                         <ul>
-                            <li>A API tentará primeiro buscar os dados ao vivo;</li>
+                            <li>A API tentará primeiro buscar os dados on-line;</li>
                             <li>Se falhar, ela usará os arquivos CSV armazenados localmente;</li>
-                            <li>O formato da resposta será o mesmo, garantindo disponibilidade contínua.</li>
+                            <li>O formato da resposta será o mesmo, garantindo disponibilidade contínua.
+                            </li>
                         </ul>
                         <p><strong>📌 Exemplo de uso do fallback:</strong></p>
                         <ul>
                             <li>Site da Embrapa inacessível;</li>
-                            <li>A API carrega dados de <code>csv/Producao.csv</code>, <code>csv/ProcessamentoViniferas.csv</code>, etc.;</li>
-                            <li>Resposta JSON igual àquela obtida ao vivo.</li>
+                            <li>A API carrega dados de <code>csv/Producao.csv</code>,
+                                <code>csv/ProcessamentoViniferas.csv</code> ou de outro arquivo <code>.csv</code> de
+                                acordo com a rota escolhida;
+                            </li>
+                            <li>Resposta JSON igual àquela obtida on-line.</li>
                         </ul>
 
                         <hr />
@@ -420,7 +480,8 @@ password: sua_senha_segura
                                 <tr>
                                     <td>400 Bad Request</td>
                                     <td>Dados inválidos no registro ou filtros incorretos</td>
-                                    <td>Verifique se os campos estão corretos e dentro dos valores permitidos</td>
+                                    <td>Verifique se os campos estão corretos e dentro dos valores
+                                        permitidos</td>
                                 </tr>
                                 <tr>
                                     <td>404 Not Found</td>
@@ -436,56 +497,46 @@ password: sua_senha_segura
                         </table>
 
                         <hr />
+                    </div>
+                    <!-- End Job Description -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-                        <h3>📌 Dicas Finais</h3>
-                        <ul>
-                            <li><strong>Botão Authorize:</strong> Use-o para inserir o token JWT e usar todas as rotas protegidas;</li>
-                            <li><strong>Anos válidos:</strong> Todos os anos vão de <code>1970</code> até <code>2023</code>;</li>
-                            <li><strong>Subopções:</strong> Os tipos de produto (<code>subopt_01</code>, <code>subopt_02</code>, etc.) seguem o padrão do site da Embrapa;</li>
-                            <li><strong>Fallback local:</strong> Caso o site esteja fora do ar, a API retorna dados de CSV armazenados localmente;</li>
-                            <li><strong>Token expirado:</strong> O token JWT expira após 30 minutos — faça login novamente se for necessário continuar os testes.</li>
-                        </ul>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-footer col-md-4 col-xs-6">
+                    <h3>Dados do Aluno</h3>
+                    <p class="contact-us-details">
+                        <b>Nome:</b> Alex Soares da Silva<br />
+                        <b>Linkedin:</b> <a href="//www.linkedin.com/in/alexsoares4a/"
+                            target="_blank">alexsoares4a</a><br />
+                        <b>Email:</b> <a
+                            href="mailto:getintoutch@yourcompanydomain.com">getintoutch@yourcompanydomain.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-					</div>	
-					<!-- End Job Description -->
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-footer col-md-4 col-xs-6">
-					<h3>Dados do Aluno</h3>
-					<p class="contact-us-details">
-						<b>Nome:</b> Alex Soares da Silva<br />
-						<b>Linkedin:</b> <a href="//www.linkedin.com/in/alexsoares4a/"
-							target="_blank">alexsoares4a</a><br />
-						<b>Email:</b> <a
-							href="mailto:getintoutch@yourcompanydomain.com">getintoutch@yourcompanydomain.com</a>
-					</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Javascripts -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
-	<script src="/static/js/bootstrap.min.js"></script>
-	<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
-	<script src="/static/js/jquery.fitvids.js"></script>
-	<script src="/static/js/jquery.sequence-min.js"></script>
-	<script src="/static/js/jquery.bxslider.js"></script>
-	<script src="/static/js/main-menu.js"></script>
-	<script src="/static/js/template.js"></script>
+    <!-- Javascripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+    <script src="/static/js/jquery.fitvids.js"></script>
+    <script src="/static/js/jquery.sequence-min.js"></script>
+    <script src="/static/js/jquery.bxslider.js"></script>
+    <script src="/static/js/main-menu.js"></script>
+    <script src="/static/js/template.js"></script>
 </body>
 
 </html>

@@ -78,61 +78,8 @@
 
                         <hr />
 
-                        <h3>1. Interação do Cliente</h3>
-                        <p>O processo começa com o acesso do cliente à API:</p>
-                        <ul>
-                            <li><strong>Cadastro:</strong> O usuário se cadastra via rota `/register`.</li>
-                            <li><strong>Login:</strong> Após cadastro, o usuário faz login via `/login`, recebendo um
-                                token JWT.</li>
-                            <li><strong>Consumo da API:</strong> O token é usado nas rotas protegidas via header
-                                `Authorization: Bearer <token>`.</li>
-                        </ul>
 
-                        <hr />
-
-                        <h3>2. Autenticação – JWT</h3>
-                        <p>A autenticação é feita usando tokens JWT, garantindo segurança no acesso às rotas protegidas:
-                        </p>
-                        <ul>
-                            <li>Dados do usuário são armazenados no banco SQLite;</li>
-                            <li>Após login bem-sucedido, um token JWT é gerado;</li>
-                            <li>O token deve ser enviado em todas as requisições às rotas protegidas;</li>
-                            <li>O middleware `get_current_user` valida o token antes de liberar o acesso.</li>
-                        </ul>
-
-                        <hr />
-
-                        <h3>3. Raspagem de Dados – BeautifulSoup</h3>
-                        <p>A API realiza web scraping direto do site da Embrapa:</p>
-                        <ul>
-                            <li>Rota chama função `scrape_embrapa()`;</li>
-                            <li>Faz requisição HTTP e extrai dados das tabelas HTML;</li>
-                            <li>Retorna dados no formato JSON estruturado.</li>
-                        </ul>
-
-                        <hr />
-
-                        <h3>4. Fallback Local – CSV</h3>
-                        <p>Para garantir disponibilidade mesmo quando o site da Embrapa estiver fora do ar:</p>
-                        <ul>
-                            <li>Se o scraping falhar, o sistema busca dados de arquivos CSV locais;</li>
-                            <li>Os dados são carregados com pandas e retornados no mesmo formato JSON;</li>
-                            <li>Permite validação do funcionamento mesmo durante correção offline.</li>
-                        </ul>
-
-                        <hr />
-
-                        <h3>5. Banco de Dados – SQLite</h3>
-                        <p>O sistema usa SQLite para armazenar usuários registrados:</p>
-                        <ul>
-                            <li>Contém informações: nome, e-mail, senha hash e status;</li>
-                            <li>Gerenciado pelo SQLAlchemy ORM;</li>
-                            <li>Usado apenas para persistência de usuários — não há cache de dados da Embrapa.</li>
-                        </ul>
-
-                        <hr />
-
-                        <h3>6. API REST – FastAPI</h3>
+                        <h3>⚡ API REST – FastAPI</h3>
                         <p>A API REST, construída com FastAPI, coordena todo o sistema:</p>
                         <ul>
                             <li>Recebe requisições do cliente;</li>
@@ -144,7 +91,61 @@
 
                         <hr />
 
-                        <h3>7. Documentação – Swagger UI</h3>
+                        <h3>👤 Interação do Cliente</h3>
+                        <p>O processo começa com o acesso do cliente à API:</p>
+                        <ul>
+                            <li><strong>Cadastro:</strong> O usuário se cadastra via rota `/register`.</li>
+                            <li><strong>Login:</strong> Após cadastro, o usuário faz login via `/login`, recebendo um
+                                token JWT.</li>
+                            <li><strong>Consumo da API:</strong> O token é usado nas rotas protegidas via header
+                                `Authorization: Bearer <token>`.</li>
+                        </ul>
+
+                        <hr />
+
+                        <h3>🔐 Autenticação – JWT</h3>
+                        <p>A autenticação é feita usando tokens JWT, garantindo segurança no acesso às rotas protegidas:
+                        </p>
+                        <ul>
+                            <li>Dados do usuário são armazenados no banco SQLite;</li>
+                            <li>Após login bem-sucedido, um token JWT é gerado;</li>
+                            <li>O token deve ser enviado em todas as requisições às rotas protegidas;</li>
+                            <li>O middleware `get_current_user` valida o token antes de liberar o acesso.</li>
+                        </ul>
+
+                        <hr />
+
+                        <h3>🕵️‍♂️ Raspagem de Dados – BeautifulSoup</h3>
+                        <p>A API realiza web scraping direto do site da Embrapa:</p>
+                        <ul>
+                            <li>Rota chama função `scrape_embrapa()`;</li>
+                            <li>Faz requisição HTTP e extrai dados das tabelas HTML;</li>
+                            <li>Retorna dados no formato JSON estruturado.</li>
+                        </ul>
+
+                        <hr />
+
+                        <h3>📁 Fallback Local – CSV</h3>
+                        <p>Para garantir disponibilidade mesmo quando o site da Embrapa estiver fora do ar:</p>
+                        <ul>
+                            <li>Se o scraping falhar, o sistema busca dados de arquivos CSV locais;</li>
+                            <li>Os dados são carregados com pandas e retornados no mesmo formato JSON;</li>
+                            <li>Permite validação do funcionamento mesmo durante correção offline.</li>
+                        </ul>
+
+                        <hr />
+
+                        <h3>💾 Banco de Dados – SQLite</h3>
+                        <p>O sistema usa SQLite para armazenar usuários registrados:</p>
+                        <ul>
+                            <li>Contém informações: nome, e-mail, senha hash e status;</li>
+                            <li>Gerenciado pelo SQLAlchemy ORM;</li>
+                            <li>Usado apenas para persistência de usuários — não há cache de dados da Embrapa.</li>
+                        </ul>
+
+                        <hr />
+
+                        <h3>📚 Documentação – Swagger UI</h3>
                         <p>O FastAPI gera automaticamente uma interface de documentação interativa:</p>
                         <ul>
                             <li>Disponível em <code>/docs</code>;</li>
@@ -152,96 +153,6 @@
                             <li>Inclui botão "Authorize" para inserir o token JWT;</li>
                             <li>Mostra modelos de requisição/resposta e possíveis erros.</li>
                         </ul>
-
-                        <hr />
-
-                        <h3>8. Plano de Deploy – Render</h3>
-                        <p>A API foi implantada online via plataforma Render:</p>
-                        <ul>
-                            <li>URL pública para acesso remoto;</li>
-                            <li>Atualização automática via GitHub;</li>
-                            <li>Suporte a variáveis de ambiente e configurações customizadas;</li>
-                            <li>Escalável para futuras melhorias.</li>
-                        </ul>
-
-                        <hr />
-
-                        <h3>9. Exemplo de Fluxo de Acesso</h3>
-                        <ol>
-                            <li>Usuário acessa a API via Swagger ou Postman;</li>
-                            <li>Faz cadastro em `/register` com nome, e-mail e senha;</li>
-                            <li>Realiza login em `/login` e recebe um token JWT;</li>
-                            <li>Insere o token no cabeçalho Authorization;</li>
-                            <li>Chama um endpoint protegido, como `/producao/2023`;</li>
-                            <li>A API tenta raspar os dados ao vivo do site da Embrapa;</li>
-                            <li>Se o site estiver fora do ar, retorna dados de CSV local;</li>
-                            <li>Dados são formatados em JSON e devolvidos ao cliente.</li>
-                        </ol>
-
-                        <hr />
-
-                        <h3>10. Considerações sobre Resiliência</h3>
-                        <p>O sistema foi projetado para ser resiliente:</p>
-                        <ul>
-                            <li>Autenticação segura com token JWT;</li>
-                            <li>Web scraping dinâmico com fallback local;</li>
-                            <li>Rotas bem documentadas e testáveis;</li>
-                            <li>Banco de dados leve e eficiente;</li>
-                            <li>Interface web básica para navegação e documentação;</li>
-                            <li>Deploy funcional e público para validação externa.</li>
-                        </ul>
-
-                        <hr />
-
-                        <h3>11. Melhorias Futuras (Opcionais)</h3>
-                        <p>Embora o projeto atenda aos requisitos mínimos, algumas melhorias podem ser adicionadas
-                            posteriormente:</p>
-                        <ul>
-                            <li>Implementação de cache para reduzir requisições ao site;</li>
-                            <li>Uso de Docker para containerização;</li>
-                            <li>Pipeline CI/CD para automatizar testes e deploy;</li>
-                            <li>Dashboard com Streamlit ou React para visualização dos dados;</li>
-                            <li>Modelo de Machine Learning alimentado pela própria API.</li>
-                        </ul>
-
-                        <hr />
-
-                        <h3>12. Resumo do Fluxo</h3>
-                        <pre>
-[Cliente] 
-   ↓ (cadastro/login)
-[API REST - FastAPI] 
-   ↓ (autenticação JWT)
-[Web Scraping → Site da Embrapa] OU [Fallback → CSV local]
-   ↓ (dados raspados ou salvos)
-[Resposta JSON → Cliente]
-                        </pre>
-
-                        <hr />
-
-                        <h3>13. Boas Práticas Adotadas</h3>
-                        <ul>
-                            <li>Organização modular do código;</li>
-                            <li>Modelos Pydantic para validação automática;</li>
-                            <li>Tratamento de exceções e logs claros;</li>
-                            <li>README.md detalhado com instruções de execução;</li>
-                            <li>Variáveis de ambiente para configuração;</li>
-                            <li>Dependências injetadas com SQLAlchemy e Depends;</li>
-                            <li>Testes manuais possíveis via Swagger;</li>
-                            <li>Fallback seguro para situações de instabilidade;</li>
-                            <li>Interface web simples com Bootstrap.</li>
-                        </ul>
-
-                        <hr />
-
-                        <h3>14. Conclusão</h3>
-                        <p>
-                            Este projeto demonstra uma solução prática e escalável para extração e consulta de dados
-                            públicos de vitivinicultura. Composta por web scraping, autenticação segura, fallback
-                            inteligente e documentação interativa, a API cumpre seu papel de forma robusta e preparada
-                            para futuras etapas de análise e modelagem de Machine Learning.
-                        </p>
-
                     </div>
                     <!-- End Job Description -->
                 </div>
