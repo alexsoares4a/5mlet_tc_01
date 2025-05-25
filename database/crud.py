@@ -10,7 +10,7 @@ def create_user(db: Session, username: str, email: str, hashed_password: str, to
         email=email,
         hashed_password=hashed_password,
         verification_token=token,
-        is_active=False
+        is_active=True
     )
     db.add(db_user)
     db.commit()
