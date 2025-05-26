@@ -13,9 +13,7 @@ from database.crud import get_user
 from .schemas import TokenData
 
 # Configurações
-SECRET_KEY = "sua_chave_secreta"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+from config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 
 pwd_context = CryptContext(schemes=["bcrypt"], bcrypt__rounds=12, deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
