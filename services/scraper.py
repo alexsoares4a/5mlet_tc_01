@@ -19,7 +19,7 @@ def scrape_embrapa(ano: int, opcao: str, subopcao: str = None):
     """
     url = f"http://vitibrasil.cnpuv.embrapa.br/index.php?ano={ano}&opcao={opcao}"
     if subopcao:
-        url += f"&subopcao={subopcao}"
+        url += f"&subopcao={subopcao.value}"
     
     try:
         response = requests.get(url, timeout=10)
