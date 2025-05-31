@@ -108,7 +108,7 @@ import pandas as pd</code></pre>
 							real via a rota <code>/login</code>, enviando as credenciais para obter um token JWT válido.
 						</p>
 						<pre><code># URL base da API
-API_URL = "https://fivemlet-tc-01.onrender.com/" # Substitua pela URL do seu deploy
+API_URL = "https://fivemlet-tc-01.onrender.com/"
 
 # Dados de login do usuário (substitua conforme necessário)
 login_data = {
@@ -151,8 +151,10 @@ dados_totais = []
 # Define o intervalo de anos desejado
 for ano in range(2014, 2024): # Exemplo: de 2014 a 2023
 
+    url_rota = f"{API_URL}/producao/{ano}"
+    
     # Faz a requisição à API com o token JWT
-    response = requests.get(f"{API_URL}/producao/{ano}", headers=headers)
+    response = requests.get(url_rota, headers=headers)
 
     if response.status_code == 200:
         # Adiciona o ano como campo para análise temporal
@@ -214,8 +216,8 @@ print("Dados salvos em dataset_producao.csv")</code></pre>
 							Exportação, Importação, Processamento e Comercialização. Basta alterar a rota da API e
 							ajustar o tratamento dos campos conforme a estrutura de dados retornada:</p>
 						<pre><code># Exemplo para Exportação de vinhos de mesa
-url = f"{API_URL}/exportacao/subopt_01/{ano}"
-resposta = requests.get(url, headers=headers)
+url_rota = f"{API_URL}/exportacao/subopt_01/{ano}"
+response = requests.get(url, headers=headers)
 
 # Adapte os campos conforme necessário
 for item in dados:
