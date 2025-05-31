@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Tech Challenge - Fase 1 - Pós-Tech Machine Learning Engineering</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/icomoon-social.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="/static/css/leaflet.css" />
+	<!--[if lte IE 8]>
+		    <link rel="stylesheet" href="/static/css/leaflet.ie.css" />
+		<![endif]-->
+	<link rel="stylesheet" href="/static/css/main.css">
+
+	<script src="/static/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+
+<body>
+	<!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+
+	<!-- Navigation & Logo-->
+	<div class="mainmenu-wrapper">
+		<div class="container">
+			<nav id="mainmenu" class="mainmenu">
+				<ul>
+					<li class="logo-wrapper"><a href="index.html"><img src="/static/img/pos-tech-logo.png"
+								alt="Pos Tech"></a></li>
+					<li><a href="/static/index.html">Home</a></li>
+					<li><a href="/static/page-tecnologias.html">Tecnologias</a></li>
+					<li><a href="/static/page-arquitetura.html">Arquitetura</a></li>
+					<li><a href="/static/page-documentacao.html">Documentação da API</a></li>
+					<li class="active"><a href="/static/page-machine-learning.html">API e Machine Learning</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+	<!-- Page Title -->
+	<div class="section section-breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>🍷 Tech Challenge - Fase 1 - Machine Learning Engineering</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Job Description -->
+					<div class="job-details-wrapper">
+						<h3>VitiBrasil API: A Base para Modelos de Machine Learning</h3>
+						<p>
+							A VitiBrasil API foi concebida como uma ponte para o acesso padronizado aos dados da
+							Embrapa, facilitando sua ingestão por sistemas analíticos, dashboards e, principalmente,
+							modelos de Machine Learning. Esta página demonstra como coletar esses dados de forma
+							automatizada, transformando-os em insumos valiosos para análises preditivas.
+						</p>
+						<p>Os dados coletados podem ser utilizados para treinar modelos de previsão de produção
+							vinícola, análise de tendências de exportação, detecção de padrões sazonais e muito mais. O
+							script abaixo é um exemplo prático, executável em ambientes Python como Jupyter Notebook,
+							PyCharm, VS Code ou Google Colab.</p>
+
+						<hr />
+
+						<h3>📈 Como Coletar Dados para Alimentar um Modelo?</h3>
+						<p>Para automatizar a coleta de dados históricos para seus modelos de Machine Learning, você
+							pode integrar requisições à VitiBrasil API em seus scripts Python, outras APIs ou notebooks
+							de análise.</p>
+
+						<hr />
+
+						<h4>🧪 Exemplo Prático – Como Fazer no Jupyter Notebook</h4>
+						<p>A seguir, um exemplo funcional de como realizar o login e consumir uma rota protegida da
+							VitiBrasil API em um Jupyter Notebook:</p>
+
+						<hr />
+
+						<h4>📦 1. Importe as bibliotecas necessárias</h4>
+						<p>Este passo prepara o ambiente com as ferramentas essenciais para a comunicação com a API REST
+							e a transformação dos dados em um formato estruturado (DataFrame).</p>
+						<pre><code># Para realizar chamadas HTTP à API
+import requests
+
+# Para carregar os dados em DataFrame e salvar CSV
+import pandas as pd</code></pre>
+
+						<hr />
+
+						<h4>🔑 2. Faça Login e Obtenha o Token JWT</h4>
+						<p>Para acessar os dados protegidos, é necessário estar autenticado. O código simula um login
+							real via a rota <code>/login</code>, enviando as credenciais para obter um token JWT válido.
+						</p>
+						<pre><code># URL base da API
+API_URL = "https://fivemlet-tc-01.onrender.com/" # Substitua pela URL do seu deploy
+
+# Dados de login do usuário (substitua conforme necessário)
+login_data = {
+    "username": "seu_usuario",
+    "password": "sua_senha"
+}
+
+# Faz a requisição POST para /login
+response = requests.post(f"{API_URL}/login", data=login_data)
+
+# Verifica se o login foi bem-sucedido
+if response.status_code == 200:
+    # Extrai o token JWT da resposta
+    token = response.json()["access_token"]
+    print("Login bem-sucedido!")
+    print("Token JWT:", token)
+else:
+    print("Erro ao fazer login:", response.text)</code></pre>
+
+						<hr />
+
+						<h4>🛡️ 3. Use o Token nas Rotas Protegidas</h4>
+						<p>Com o token em mãos, ele deve ser incluído no cabeçalho <code>Authorization</code> de todas
+							as requisições às rotas protegidas. Isso permite consumir os dados diretamente da Embrapa
+							(ou do fallback local, se o site estiver instável).</p>
+						<pre><code># Define os cabeçalhos com o token Bearer para autenticação
+headers = {
+    "Authorization": f"Bearer {token}"
+}</code></pre>
+
+						<hr />
+
+						<h4>🤖 4. Automatize a Coleta de Dados Históricos</h4>
+						<p>Este é o cerne do processo de coleta de dados para ML. O exemplo itera sobre um intervalo de
+							anos, acessando a rota <code>/producao/{ano}</code> e agregando os resultados em uma única
+							estrutura de dados.</p>
+						<pre><code># Cria uma lista vazia para armazenar todos os dados coletados
+dados_totais = []
+
+# Define o intervalo de anos desejado
+for ano in range(2014, 2024): # Exemplo: de 2014 a 2023
+
+    # Faz a requisição à API com o token JWT
+    response = requests.get(f"{API_URL}/producao/{ano}", headers=headers)
+
+    if response.status_code == 200:
+        # Adiciona o ano como campo para análise temporal
+        dados = response.json()
+        for item in dados:
+            item["ano"] = ano # Anexa o ano a cada registro
+
+        dados_totais.extend(dados) # Adiciona os dados coletados à lista principal
+        print(f"Dados de {ano} adicionados.")
+    else:
+        print(f"Erro ao coletar dados de {ano}: {response.text}")
+
+# Converte os dados coletados em DataFrame e salva como CSV
+df_final = pd.DataFrame(dados_totais)
+df_final.to_csv("dataset_producao.csv", index=False)
+print("Dados salvos em dataset_producao.csv")</code></pre>
+
+						<hr />
+
+						<h3>💡Onde Usar Esses Dados?</h3>
+						<p>O arquivo CSV gerado, ou os dados diretamente consumidos, podem ser aplicados em diversos
+							cenários de Machine Learning:</p>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Cenário de ML</th>
+									<th>Rota da API Utilizada</th>
+									<th>Técnica Recomendada</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Previsão de Produção Vinícola</td>
+									<td><code>/producao/{ano}</code></td>
+									<td>Regressão Linear, Prophet</td>
+								</tr>
+								<tr>
+									<td>Tendências de Exportação</td>
+									<td><code>/exportacao/{produto}/{ano}</code></td>
+									<td>Séries Temporais, Clusterização</td>
+								</tr>
+								<tr>
+									<td>Detecção de Padrões Sazonais</td>
+									<td><code>/comercializacao/{ano}</code></td>
+									<td>Análise Estatística, Holt-Winters</td>
+								</tr>
+								<tr>
+									<td>Classificação de Países Importadores</td>
+									<td><code>/importacao/{produto}/{ano}</code></td>
+									<td>KMeans, Árvores de Decisão</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<hr />
+
+						<h3>🔄 Como Adaptar para Outras Rotas?</h3>
+						<p>Você pode facilmente adaptar este script para gerar datasets completos de Produção,
+							Exportação, Importação, Processamento e Comercialização. Basta alterar a rota da API e
+							ajustar o tratamento dos campos conforme a estrutura de dados retornada:</p>
+						<pre><code># Exemplo para Exportação de vinhos de mesa
+url = f"{API_URL}/exportacao/subopt_01/{ano}"
+resposta = requests.get(url, headers=headers)
+
+# Adapte os campos conforme necessário
+for item in dados:
+    item["ano"] = ano
+    item["tipo"] = "vinhos_de_mesa" # Adicione campos específicos da rota
+</code></pre>
+						<p>Após a coleta, basta converter os dados para um DataFrame Pandas e salvá-los como CSV ou
+							JSON, prontos para o treinamento do seu modelo de Machine Learning.</p>
+						<!-- End Job Description -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-footer col-md-4 col-xs-6">
+						<h3>Dados do Aluno</h3>
+						<p class="contact-us-details">
+							<b>Nome:</b> Alex Soares da Silva<br />
+							<b>Linkedin:</b> <a href="//www.linkedin.com/in/alexsoares4a/"
+								target="_blank">alexsoares4a</a><br />
+							<b>Email:</b> <a
+								href="mailto:getintoutch@yourcompanydomain.com">getintoutch@yourcompanydomain.com</a>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Javascripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+		<script src="/static/js/bootstrap.min.js"></script>
+		<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+		<script src="/static/js/jquery.fitvids.js"></script>
+		<script src="/static/js/jquery.sequence-min.js"></script>
+		<script src="/static/js/jquery.bxslider.js"></script>
+		<script src="/static/js/main-menu.js"></script>
+		<script src="/static/js/template.js"></script>
+</body>
+
+</html>

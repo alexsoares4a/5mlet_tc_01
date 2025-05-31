@@ -42,6 +42,7 @@
 					<li class="active"><a href="/static/page-tecnologias.html">Tecnologias</a></li>
 					<li><a href="/static/page-arquitetura.html">Arquitetura</a></li>
 					<li><a href="/static/page-documentacao.html">Documentação da API</a></li>
+					<li><a href="/static/page-machine-learning.html">API e Machine Learning</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -64,131 +65,141 @@
 				<div class="col-md-12">
 					<!-- Job Description -->
 					<div class="job-details-wrapper">
-						<h3>Tecnologias Escolhidas para o Projeto</h3>
-						<p>Este projeto foi desenvolvido utilizando um conjunto de tecnologias que permitem atender aos
-							requisitos do Tech Challenge - Fase 1 de forma prática e simples. A seguir estão as
-							principais
-							ferramentas e bibliotecas escolhidas, juntamente com o motivo de cada decisão técnica.</p>
+						<h3>Tecnologias Utilizadas na VitiBrasil API</h3>
+						<p>A VitiBrasil API foi construída com uma seleção estratégica de tecnologias, visando atender
+							aos requisitos do Tech Challenge - Fase 1 de forma eficiente e robusta. Cada ferramenta foi
+							escolhida por suas características específicas e sua capacidade de otimizar o
+							desenvolvimento e a performance do sistema.</p>
 
 						<hr />
 
 						<h3>🐍 FastAPI – API REST em Python</h3>
-						<p>O FastAPI foi a escolha principal para construir a API REST deste projeto. Ele é um framework
-							moderno, rápido e altamente produtivo, especialmente projetado para APIs.</p>
+						<p>O FastAPI foi a escolha principal para construir a API REST, destacando-se como um framework
+							Python moderno, rápido e altamente produtivo. Sua arquitetura assíncrona e recursos
+							integrados aceleram o desenvolvimento de APIs de alta performance.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Rapidez:</strong> Desempenho comparável ao Node.js e Go.</li>
-							<li><strong>Documentação automática:</strong> Gera Swagger e ReDoc diretamente a partir dos
-								modelos Pydantic.</li>
-							<li><strong>Sintaxe limpa:</strong> Baseada em padrões assíncronos do Python 3.8+.</li>
-							<li><strong>Validação integrada:</strong> Usando Pydantic, garante consistência nos dados
-								recebidos.</li>
+							<li><strong>Rapidez:</strong> Desempenho otimizado, comparável a tecnologias como Node.js e
+								Go.</li>
+							<li><strong>Documentação Automática:</strong> Geração instantânea de interfaces interativas
+								(Swagger UI e ReDoc) a partir dos modelos Pydantic.</li>
+							<li><strong>Sintaxe Limpa:</strong> Baseada em padrões assíncronos do Python 3.8+,
+								facilitando a escrita de código conciso.</li>
+							<li><strong>Validação Integrada:</strong> Utiliza Pydantic para garantir a consistência e
+								integridade dos dados.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Ideal para protótipos ágeis com documentação interativa
-							pronta, permitindo um desenvolvimento eficiente e bem estruturado.</p>
+						<p><strong>Motivo da escolha:</strong> Ideal para protótipos ágeis e APIs com documentação
+							interativa pronta, promovendo um desenvolvimento eficiente e bem estruturado.</p>
 
 						<hr />
 
 						<h3>🧱 Pydantic – Validação e Modelagem de Dados</h3>
-						<p>O Pydantic é uma biblioteca poderosa usada para validar e modelar os dados que entram e saem
-							da API.</p>
+						<p>O Pydantic é fundamental para a validação e modelagem dos dados que transitam pela API,
+							assegurando a integridade e a segurança das informações.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Tipagem forte:</strong> Garante integridade e segurança dos dados.</li>
-							<li><strong>Modelos reutilizáveis:</strong> Facilita a manutenção e padronização.</li>
-							<li><strong>Integração nativa:</strong> Com o FastAPI, gera automaticamente a documentação
+							<li><strong>Tipagem Forte:</strong> Garante a conformidade e a segurança dos dados.</li>
+							<li><strong>Modelos Reutilizáveis:</strong> Facilita a manutenção e padronização do código.
+							</li>
+							<li><strong>Integração Nativa:</strong> Com o FastAPI, automatiza a geração da documentação
 								da API.</li>
 						</ul>
 						<p><strong>Motivo da escolha:</strong> Essencial para garantir que apenas dados válidos sejam
-							aceitos pela API.</p>
+							processados pela API, prevenindo erros e vulnerabilidades.</p>
 
 						<hr />
 
-						<h3>🔐 JWT – Autenticação com Token</h3>
-						<p>Para proteger as rotas da API, foi adotado o padrão JSON Web Token (JWT), uma solução
-							amplamente utilizada para autenticação segura em sistemas RESTful.</p>
+						<h3>🔐 JWT – Autenticação Segura</h3>
+						<p>Para proteger as rotas da API, adotamos o padrão JSON Web Token (JWT), uma solução amplamente
+							reconhecida para autenticação segura em sistemas RESTful.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Stateless:</strong> Não depende de sessões armazenadas no servidor.</li>
-							<li><strong>Seguro:</strong> Tokens assinados digitalmente com algoritmos como HS256.</li>
-							<li><strong>Escalável:</strong> Permite fácil expansão futura para múltiplos usuários e
-								ambientes distribuídos.</li>
+							<li><strong>Stateless:</strong> Não requer armazenamento de sessões no servidor, otimizando
+								a escalabilidade.</li>
+							<li><strong>Seguro:</strong> Tokens assinados digitalmente com algoritmos robustos como
+								HS256.</li>
+							<li><strong>Escalável:</strong> Facilita a expansão para múltiplos usuários e ambientes
+								distribuídos.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Simples de implementar e compatível com padrões web
-							modernos.</p>
+						<p><strong>Motivo da escolha:</strong> Simples de implementar e alinhado com os padrões de
+							segurança web modernos.</p>
 
 						<hr />
 
-						<h3>📦 SQLAlchemy – ORM para Banco de Dados</h3>
-						<p>O SQLAlchemy foi utilizado como ORM (Object Relational Mapper) para facilitar a manipulação
-							do banco de dados SQLite.</p>
+						<h3>📦 SSQLAlchemy – ORM para Persistência</h3>
+						<p>O SQLAlchemy foi empregado como ORM (Object Relational Mapper) para simplificar a interação
+							com o banco de dados SQLite, abstraindo a complexidade das queries SQL.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Abstração de SQL:</strong> Trabalha com objetos Python, não com queries
-								puras.</li>
-							<li><strong>Compatibilidade:</strong> Funciona com SQLite, PostgreSQL, MySQL entre outros.
-							</li>
-							<li><strong>Boa integração:</strong> Com o FastAPI.</li>
+							<li><strong>Abstração de SQL:</strong> Permite trabalhar com objetos Python, tornando o
+								código mais legível e menos propenso a erros.</li>
+							<li><strong>Compatibilidade:</strong> Suporta diversos bancos de dados, incluindo SQLite,
+								PostgreSQL e MySQL.</li>
+							<li><strong>Boa Integração:</strong> Funciona harmoniosamente com o FastAPI.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Permite escrever código mais organizado e seguro,
-							evitando erros comuns de SQL.</p>
+						<p><strong>Motivo da escolha:</strong> Promove um código mais organizado e seguro, minimizando
+							erros comuns de manipulação de banco de dados.</p>
 
 						<hr />
 
 						<h3>🔒 Passlib – Hash de Senhas</h3>
-						<p>A biblioteca Passlib foi usada para gerenciar senhas de forma segura, usando algoritmos como
-							bcrypt.</p>
+						<p>A biblioteca Passlib foi utilizada para gerenciar senhas de forma segura, empregando
+							algoritmos de hash como bcrypt.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Hash seguro:</strong> Armazena senhas criptografadas.</li>
-							<li><strong>Flexível:</strong> Suporta diversos algoritmos de hash.</li>
-							<li><strong>Integração simples:</strong> Com Pydantic e FastAPI.</li>
+							<li><strong>Hash Seguro:</strong> Armazena senhas criptografadas, nunca em texto plano.</li>
+							<li><strong>Flexível:</strong> Suporta uma variedade de algoritmos de hash.</li>
+							<li><strong>Integração Simples:</strong> Compatível com Pydantic e FastAPI.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Aumenta a segurança do sistema, evitando armazenamento de
-							senhas em texto plano.</p>
+						<p><strong>Motivo da escolha:</strong> Aumenta significativamente a segurança do sistema,
+							protegendo as credenciais dos usuários.</p>
 
 						<hr />
 
-						<h3>🕵️ BeautifulSoup – Raspagem de Dados</h3>
-						<p>Como a Embrapa não disponibiliza uma API pública, optamos por fazer web scraping dos dados
-							diretamente do site usando BeautifulSoup.</p>
+						<h3>🕵️ BeautifulSoup – Web Scraping</h3>
+						<p>Como a Embrapa não oferece uma API pública para seus dados, o BeautifulSoup foi a ferramenta
+							escolhida para realizar o web scraping diretamente do site.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Leve e eficaz:</strong> Excelente para extração rápida de tabelas HTML.</li>
-							<li><strong>Fácil uso:</strong> Integra-se perfeitamente com requisições HTTP via requests.
+							<li><strong>Leve e Eficaz:</strong> Ideal para extração rápida de tabelas HTML.</li>
+							<li><strong>Fácil Uso:</strong> Integra-se perfeitamente com requisições HTTP via biblioteca
+								<code>requests</code>.
 							</li>
-							<li><strong>Robusto:</strong> Capaz de lidar com variações na estrutura HTML.</li>
+							<li><strong>Robusto:</strong> Capaz de lidar com variações na estrutura HTML das páginas.
+							</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> É uma ferramenta acessível e poderosa para extrair dados
-							de site web.</p>
+						<p><strong>Motivo da escolha:</strong> Uma ferramenta acessível e poderosa para a extração
+							programática de dados web.</p>
 
 						<hr />
 
-						<h3>📁 CSV – Fallback Local para Dados</h3>
-						<p>Para garantir a disponibilidade da API mesmo quando o site da Embrapa estiver fora do ar,
-							implementamos fallback local através de arquivos CSV.</p>
+						<h3>📁 CSV – Resiliência com Fallback Local</h3>
+						<p>Para garantir a disponibilidade contínua da API, mesmo com a instabilidade do site da
+							Embrapa, implementamos um mecanismo de fallback local utilizando arquivos CSV.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Arquivo simples:</strong> Leitura direta com pandas.</li>
-							<li><strong>Baixa dependência:</strong> Não requer conexão externa ou banco de dados.</li>
+							<li><strong>Arquivo Simples:</strong> Leitura direta e eficiente com Pandas.</li>
+							<li><strong>Baixa Dependência:</strong> Não exige conexão externa ou banco de dados
+								adicional para o fallback.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Oferece resiliência sem complexidade adicional, essencial
-							para validação durante a correção.</p>
+						<p><strong>Motivo da escolha:</strong> Oferece resiliência sem adicionar complexidade, crucial
+							para a validação do projeto.</p>
 
 						<hr />
 
-						<h3>💾 SQLite – Banco de Dados Local</h3>
-						<p>Optamos pelo SQLite para armazenar informações de usuário, como nome, e-mail e senha
-							criptografada.</p>
+						<h3>💾 SQLite – Banco de Dados Leve para Usuários</h3>
+						<p>O SQLite foi selecionado para armazenar informações de usuário (nome, e-mail e senha
+							criptografada) devido à sua simplicidade e leveza.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Zero setup:</strong> Basta um arquivo `.db` - nenhum servidor necessário.</li>
-							<li><strong>Leve e rápido:</strong> Ideal para MVPs e protótipos.</li>
-							<li><strong>Simplicidade:</strong> Muito usado em aplicações locais e pequenos
-								sistemas.</li>
+							<li><strong>Zero Setup:</strong> Funciona com um único arquivo <code>.db</code>, sem
+								necessidade de servidor.</li>
+							<li><strong>Leve e Rápido:</strong> Ideal para MVPs e protótipos.</li>
+							<li><strong>Simplicidade:</strong> Amplamente utilizado em aplicações locais e sistemas de
+								pequeno porte.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Adequado para o escopo atual, com possibilidade de
-							escalar futuramente.</p>
+						<p><strong>Motivo da escolha:</strong> Adequado para o escopo atual do projeto, com potencial de
+							escalabilidade futura.</p>
 
 						<hr />
 
@@ -197,53 +208,60 @@
 							Render.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Gratuito:</strong> Disponível para pequenas cargas.</li>
-							<li><strong>Fácil deploy:</strong> Suporte a GitHub e configuração simplificada.</li>
-							<li><strong>URL pública:</strong> Acessível para testes remotos e demonstrações.</li>
+							<li><strong>Gratuito:</strong> Disponível para pequenas cargas de trabalho.</li>
+							<li><strong>Fácil Deploy:</strong> Suporte direto a repositórios GitHub e configuração
+								simplificada.</li>
+							<li><strong>URL Pública:</strong> Permite acesso para testes remotos e demonstrações.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Plataforma confiável, prática e gratuita, ideal para
-							MVPs.</p>
+						<p><strong>Motivo da escolha:</strong> Plataforma confiável, prática e gratuita, ideal para a
+							fase de MVP.</p>
 
 						<hr />
 
-						<h3>🖥️ Bootstrap – Interface Estática</h3>
+						<h3>🖥️ Bootstrap – Interface Estática e Responsiva</h3>
 						<p>A interface inicial do projeto foi desenvolvida com Bootstrap, garantindo responsividade e
-							facilidade de uso.</p>
+							uma experiência de usuário intuitiva.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Responsivo:</strong> Adapta-se a qualquer dispositivo.</li>
-							<li><strong>Componentes prontos:</strong> Botões, menus e navegação intuitiva.</li>
-							<li><strong>Design:</strong> Visual limpo e moderno.</li>
+							<li><strong>Responsivo:</strong> Adapta-se a qualquer dispositivo e tamanho de tela.</li>
+							<li><strong>Componentes Prontos:</strong> Oferece uma vasta gama de elementos de UI (botões,
+								menus, etc.).</li>
+							<li><strong>Design Moderno:</strong> Proporciona um visual limpo e profissional.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Permite criar uma interface amigável com poucas linhas de
-							código.</p>
+						<p><strong>Motivo da escolha:</strong> Permite criar uma interface amigável e visualmente
+							atraente com eficiência.</p>
 
 						<hr />
 
 						<h3>📜 Swagger – Documentação Interativa da API</h3>
-						<p>O Swagger foi usado para gerar a documentação interativa da API, permitindo testar os
+						<p>O Swagger foi utilizado para gerar a documentação interativa da API, facilitando o teste dos
 							endpoints diretamente no navegador.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Interface visual:</strong> Teste de rotas com preenchimento de parâmetros.</li>
-							<li><strong>Atualização automática:</strong> A documentação reflete mudanças no código.</li>
-							<li><strong>Compatível com OpenAPI:</strong> Aceita ferramentas como Postman e Insomnia.
-							</li>
+							<li><strong>Interface Visual:</strong> Permite testar rotas com preenchimento de parâmetros
+								de forma intuitiva.</li>
+							<li><strong>Atualização Automática:</strong> A documentação reflete automaticamente as
+								mudanças no código da API.</li>
+							<li><strong>Compatível com OpenAPI:</strong> Garante interoperabilidade com outras
+								ferramentas como Postman e Insomnia.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong>Permite testar rotas diretamente no navegador.</p>
+						<p><strong>Motivo da escolha:</strong> Essencial para a usabilidade e testabilidade da API,
+							permitindo que desenvolvedores explorem e testem as funcionalidades facilmente.</p>
 
 						<hr />
 
 						<h3>📂 Pandas – Manipulação de Dados em CSV</h3>
-						<p>Usamos o Pandas para ler e processar os arquivos CSV no caso de fallback.</p>
+						<p>O Pandas é empregado para a leitura e processamento eficiente dos arquivos CSV utilizados no
+							mecanismo de fallback.</p>
 						<p>Principais características:</p>
 						<ul>
-							<li><strong>Eficiente:</strong> Manipula adequadamente o volume de dados disponível.</li>
-							<li><strong>Flexível:</strong> Converte dados para JSON de forma simples e robusta.</li>
-							<li><strong>Integração direta:</strong> Com o FastAPI e o sistema de fallback.</li>
+							<li><strong>Eficiente:</strong> Manipula grandes volumes de dados de forma otimizada.</li>
+							<li><strong>Flexível:</strong> Converte dados para JSON de maneira simples e robusta.</li>
+							<li><strong>Integração Direta:</strong> Facilita a integração com o FastAPI e o sistema de
+								fallback.</li>
 						</ul>
-						<p><strong>Motivo da escolha:</strong> Uma das melhores bibliotecas para análise e manipulação
-							de dados em Python.</p>
+						<p><strong>Motivo da escolha:</strong> Uma das bibliotecas mais poderosas e versáteis para
+							análise e manipulação de dados em Python.</p>
 
 						<hr />
 
@@ -252,68 +270,68 @@
 							<thead>
 								<tr>
 									<th>Tecnologia</th>
-									<th>Função</th>
-									<th>Motivo da Escolha</th>
+									<th>Função Principal</th>
+									<th>Benefício Chave</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td><strong>FastAPI</strong></td>
+									<td>FastAPI</td>
 									<td>Criação da API REST</td>
 									<td>Desenvolvimento rápido, suporte a async e documentação integrada</td>
 								</tr>
 								<tr>
-									<td><strong>Pydantic</strong></td>
+									<td>Pydantic</td>
 									<td>Validação e modelagem de dados</td>
 									<td>Garante integridade e tipagem nas entradas/saídas da API</td>
 								</tr>
 								<tr>
-									<td><strong>JWT</strong></td>
+									<td>JWT</td>
 									<td>Autenticação com token</td>
 									<td>Padrão de mercado, stateless e seguro</td>
 								</tr>
 								<tr>
-									<td><strong>SQLAlchemy</strong></td>
+									<td>SQLAlchemy</td>
 									<td>Manipulação do banco de dados</td>
 									<td>ORM leve e flexível, com boa curva de aprendizado</td>
 								</tr>
 								<tr>
-									<td><strong>Passlib</strong></td>
+									<td>Passlib</td>
 									<td>Gerenciamento de senhas</td>
 									<td>Hash seguro e fácil de usar</td>
 								</tr>
 								<tr>
-									<td><strong>BeautifulSoup</strong></td>
+									<td>BeautifulSoup</td>
 									<td>Raspagem de dados do site da Embrapa</td>
 									<td>Ferramenta simples e eficaz para extração de HTML</td>
 								</tr>
 								<tr>
-									<td><strong>CSV</strong></td>
+									<td>CSV</td>
 									<td>Dados de backup</td>
 									<td>Camada de fallback simples e funcional</td>
 								</tr>
 								<tr>
-									<td><strong>SQLite</strong></td>
+									<td>SQLite</td>
 									<td>Armazenamento de usuários</td>
 									<td>Banco leve e zero-configuração</td>
 								</tr>
 								<tr>
-									<td><strong>Render</strong></td>
+									<td>Render</td>
 									<td>Hospedagem online</td>
 									<td>Gratuito, rápido e fácil de configurar</td>
 								</tr>
 								<tr>
-									<td><strong>Bootstrap</strong></td>
+									<td>Bootstrap</td>
 									<td>Interface estática</td>
 									<td>Design responsivo e profissional com pouco esforço</td>
 								</tr>
 								<tr>
-									<td><strong>Swagger</strong></td>
+									<td>Swagger</td>
 									<td>Documentação interativa</td>
 									<td>Permite testar rotas diretamente no navegador</td>
 								</tr>
 								<tr>
-									<td><strong>Pandas</strong></td>
+									<td>Pandas</td>
 									<td>Leitura e filtragem de CSV</td>
 									<td>Facilidade de uso e alto desempenho</td>
 								</tr>
