@@ -126,7 +126,7 @@
 
 						<hr />
 
-						<h3>📦 SSQLAlchemy – ORM para Persistência</h3>
+						<h3>📦 SQLAlchemy – ORM para Persistência</h3>
 						<p>O SQLAlchemy foi empregado como ORM (Object Relational Mapper) para simplificar a interação
 							com o banco de dados SQLite, abstraindo a complexidade das queries SQL.</p>
 						<p>Principais características:</p>
@@ -139,6 +139,28 @@
 						</ul>
 						<p><strong>Motivo da escolha:</strong> Promove um código mais organizado e seguro, minimizando
 							erros comuns de manipulação de banco de dados.</p>
+
+						<hr />
+
+						<h3>⚙️ Alembic – Gerenciamento de Migrações de Banco de Dados</h3>
+						<p>O Alembic é uma ferramenta essencial para o gerenciamento de migrações de esquema de banco de
+							dados, trabalhando em conjunto com o SQLAlchemy. Ele permite versionar e aplicar alterações
+							estruturais no banco de dados de forma controlada e segura.</p>
+						<p>Principais características:</p>
+						<ul>
+							<li><strong>Versionamento de Esquema:</strong> Controla e rastreia todas as alterações no
+								banco de dados ao longo do tempo.</li>
+							<li><strong>Integração com SQLAlchemy:</strong> Funciona perfeitamente com o ORM,
+								facilitando a detecção e geração de migrações a partir dos modelos Python.</li>
+							<li><strong>Automação:</strong> Permite a geração automática de scripts de migração
+								(autogenerate) com base nas diferenças entre o modelo e o banco de dados.</li>
+							<li><strong>Rollback/Upgrade:</strong> Facilita a aplicação e a reversão de migrações,
+								garantindo a consistência do ambiente.</li>
+						</ul>
+						<p><strong>Motivo da escolha:</strong> Essencial para manter o esquema do banco de dados
+							sincronizado em diferentes ambientes (desenvolvimento, produção) e para facilitar o
+							desenvolvimento colaborativo, garantindo a integridade dos dados durante as evoluções do
+							modelo.</p>
 
 						<hr />
 
