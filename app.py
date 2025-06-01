@@ -157,24 +157,6 @@ async def login(
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
-# Rota de Logout
-@app.post(
-    "/logout", 
-    tags=["Cadastro e Autenticação"],
-    summary="Logoff do Usuário", 
-    description="Remove a sessão do usuário.",
-    responses={
-        200: {"description": "Sessão encerrada com sucesso."},
-        401: {"description": "Não autorizado. Token inválido ou ausente."}
-    }
-)
-async def logout():
-    """
-    Endpoint de logout.
-    Como JWTs são stateless, este endpoint apenas retorna uma mensagem de sucesso.
-    """
-    return {"message": "Sessão encerrada com sucesso."}
-
 # Rota de Excluir Conta do Usuário
 @app.delete(
     "/delete-user",
@@ -358,8 +340,8 @@ def get_importacao(
     ano: int = Path(
         ...,
         ge=1970,
-        le=2023,
-        description="Ano da consulta (entre 1970 e 2023)."
+        le=2024,
+        description="Ano da consulta (entre 1970 e 2024)."
     ),
     current_user: str = Depends(get_current_user)
 ) -> list:
@@ -414,8 +396,8 @@ def get_exportacao(
     ano: int = Path(
         ...,
         ge=1970,
-        le=2023,
-        description="Ano da consulta (entre 1970 e 2023)."
+        le=2024,
+        description="Ano da consulta (entre 1970 e 2024)."
     ),
     current_user: User = Depends(get_current_user)
 ) -> list:
