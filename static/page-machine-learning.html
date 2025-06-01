@@ -151,6 +151,7 @@ dados_totais = []
 # Define o intervalo de anos desejado
 for ano in range(2014, 2024): # Exemplo: de 2014 a 2023
 
+    # Exemplo para Produção de vinhos, sucos e derivados
     url_rota = f"{API_URL}/producao/{ano}"
     
     # Faz a requisição à API com o token JWT
@@ -215,14 +216,17 @@ print("Dados salvos em dataset_producao.csv")</code></pre>
 						<p>Você pode facilmente adaptar este script para gerar datasets completos de Produção,
 							Exportação, Importação, Processamento e Comercialização. Basta alterar a rota da API e
 							ajustar o tratamento dos campos conforme a estrutura de dados retornada:</p>
-						<pre><code># Exemplo para Exportação de vinhos de mesa
-url_rota = f"{API_URL}/exportacao/subopt_01/{ano}"
-response = requests.get(url, headers=headers)
+						<pre><code># Exemplo para Exportação de 'Suco de uva'
+# Consulte a página 'Documentação da API' para utilização das rotas
+url_rota = f"{API_URL}/exportacao/subopt_04/{ano}"
+
+# Faz a requisição à API com o token JWT
+response = requests.get(url_rota, headers=headers)
 
 # Adapte os campos conforme necessário
 for item in dados:
     item["ano"] = ano
-    item["tipo"] = "vinhos_de_mesa" # Adicione campos específicos da rota
+    item["produto"] = "Suco de uva" # Adicione campos específicos da rota
 </code></pre>
 						<p>Após a coleta, basta converter os dados para um DataFrame Pandas e salvá-los como CSV ou
 							JSON, prontos para o treinamento do seu modelo de Machine Learning.</p>
